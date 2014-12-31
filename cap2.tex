@@ -8,42 +8,41 @@ Neste capítulo são apresentados os conceitos sobre Sistemas de Arquivos Distri
 
 \section{Sistemas Distribuídos}
 
-    Segundo ~\cite{tanenbaum}, um Sistema Distribuído (SD) é um conjunto de computadores independentes que se apresenta aos usuários como um sistema único e coerente ocultado detalhes da implementação que não são úteis aos usuários. Ainda sim um sistema distribuído pode ser definido de acordo com ~\cite{coulouris} como um sistema onde os componentes computacionais, tanto os de \textit{hardware} como os de \textit{software}, se comunicam e coordenam suas ações através de mensagens transmitidas por uma ou mais redes de computadores, independente da distância entre seus componentes. Essas características, agregam diversos desafios na implementação de sistemas distribuídos. Esses desafios são:
+    Segundo ~\cite{tanenbaum}, um Sistema Distribuído (SD) é um conjunto de computadores independentes que se apresenta aos usuários como um sistema único e coerente, ocultado detalhes da implementação que não são úteis aos usuários. Ainda sim um sistema distribuído pode ser definido de acordo com ~\cite{coulouris} como um sistema onde os componentes computacionais, tanto os de \textit{hardware} como os de \textit{software}, se comunicam e coordenam suas ações através de mensagens transmitidas por uma ou mais redes de computadores, independente da distância entre seus componentes. Essas características, agregam diversos desafios na implementação de sistemas distribuídos. De acordo com ~\cite{coulouris} esses desafios são:
     
     \subsection{Heterogeneidade}
-        Como esses sistemas muitas vezes são compostos por \textit{hardwares} e arquiteturas diferentes, diversos sistemas operacionais e \textit{softwares} desenvolvido por diferentes equipes e muitas vezes com configurações distintas
-        entre outros fatores. Dessa forma é de grande importância que o sistema como um todo seja baseado em protocolos compatíveis que possam gerenciar essas diferenças e fornecer ao usuário um ambiente único e coeso.
+        Como esses sistemas muitas vezes são compostos por \textit{hardwares} e arquiteturas diferentes, diversos sistemas operacionais e \textit{softwares} desenvolvido por diferentes equipes e muitas vezes com configurações distintas entre outros fatores. Dessa forma é de grande importância que todo o sistema seja baseado em protocolos compatíveis que possam gerenciar essas diferenças e fornecer ao usuário um ambiente único e coeso.
     
     \subsection{Abertura}
         Um sistema é dito aberto, quando suas interfaces de comunicação ou de desenvolvimento são acessíveis e programas podem ser feitos ou alterados por terceiros para que sejam compatível com esse sistema. Os grandes desafios para criar sistemas abertos são: fornecer principais interfaces publicamente, mecanismos de comunicação uniforme para acesso a recursos compartilhados e por fim, realizar os testes necessários para que esse sistema se comporte como esperado e seja compatível com o padrão publicado.
     
     \subsection{Segurança}
-        Um dos grandes desafios de sistemas distribuídos é manter a segurança do próprio sistema de modo a manter a disponibilidade do serviço a seus clientes, confidencialidade dos dados que ele armazena ou processa e não menos importante a integridade do sistema e dos dados que estão no SD. Esse tópico é de grande importância na maioria dos SD disponíveis pois afeta principalmente a disponibilidade do serviço aos usuários e na confiança que o usuário tem sobre o serviço ~\cite{coulouris}.
+        Um dos grandes desafios de sistemas distribuídos é manter a segurança do próprio sistema de modo a manter a disponibilidade do serviço a seus clientes, confidencialidade dos dados que ele armazena ou processa e não menos importante, a integridade do sistema e dos dados que estão no SD. Esse tópico é de grande importância na maioria dos SD atuais pois afeta principalmente a disponibilidade do serviço aos usuários e a confiança que o usuário tem sobre o serviço.
     
     \subsection{Escalabilidade}
-        Um sistema é dito escalável se seu desempenho cresce proporcionalmente aos recursos que são inserido no SD, sem perda de qualidade ou desempenho do serviço. Essa característica é muito importante para que o sistema continue operando em cenários que exijam mais recursos do que o cenário inicial para o qual o sistema implantado. Embora pareça um desafio fácil de solucionar, como mostrado em ~\cite{coulouris}, a solução desses desafios não são sempre triviais, como por exemplo gerenciar a perda de desempenho do sistema ao aumentar o número de servidores e clientes em uma rede, ou manter a latência dentro de um patamar aceitável com o crescimento do número de servidores e a distância entre eles.
+        Um sistema é dito escalável se seu desempenho cresce proporcionalmente aos recursos que são agregados ao SD, sem perda de qualidade ou desempenho do serviço. Essa característica é muito importante para que o sistema continue operando em cenários que exijam mais recursos do que o cenário inicial para o qual o sistema implantado. Embora pareça um desafio fácil de solucionar, como mostrado em ~\cite{coulouris}, a solução desses desafios não são sempre triviais, como por exemplo gerenciar a perda de desempenho do sistema ao aumentar o número de servidores e clientes em uma rede, ou manter a latência dentro de um patamar aceitável com o crescimento do número de servidores e a distância entre eles.
     
     \subsection{Tratamento de falhas}
 
-        Como o sistema é distribuído, falhas tendem a não comprometer a totalidade do sistema, afetando apenas alguns pontos  por vez enquanto outros continuam operando. Mas isso torna essas falhas complexas de serem tratadas para que o sistema volte a operar como esperado ~\cite{coulouris}. Para tratar essas falhas são utilizadas as seguintes técnicas:
+        Como o sistema é distribuído, falhas tendem a não comprometer a totalidade do sistema, afetando apenas alguns pontos  por vez enquanto outros continuam operando. Mas isso torna essas falhas complexas de serem tratadas de forma que o sistema continue a operar como esperado ~\cite{coulouris}. Para tratar essas falhas são utilizadas as seguintes técnicas:
         \begin{enumerate}
     
-            \item Detecção de falha: Erros de transmissão por exemplo podem ser detectados e facilmente corrigidos através de mecanismos próprios e algoritmos bem conhecidos como por exemplo o os algoritmos de \textit{hash} MD5 e o SHA;
+            \item Detecção de falha: erros de transmissão por exemplo podem ser detectados e facilmente corrigidos através de mecanismos próprios e algoritmos bem conhecidos como por exemplo o os algoritmos de \textit{hash} \textit{Message-Digest algorithm 5} (MD5) e o \textit{Secure Hash Algorithm} (SHA);
             
-            \item Mascaramento de falha: Essa técnica consiste não em solucionar o problema mas aumentar a resistência do sistema as falhas, como por exemplo replicar informações servidores e retransmitir mensagens danificadas;
+            \item Mascaramento de falha: essa técnica consiste não em solucionar o problema mas aumentar a resistência do sistema as falhas, como por exemplo replicar informações servidores e retransmitir mensagens danificadas;
             
-            \item Tolerância a falhas: Nem sempre é possível construir sistemas a prova de falhas, sendo muito mais simples e barato projetá-los para tolerar algumas falhas até certo ponto e depois disso informar o usuário sobre a falha ocorrida. Um exemplo clássico citado em ~\cite{coulouris} é o do navegador web que após um certo número de tentativas sem sucesso de carregar uma página \textit{web}, desiste de tentar carregar a página e informa o erro ao usuário;
+            \item Tolerância a falhas: nem sempre é possível construir sistemas a prova de falhas, sendo muito mais simples e barato projetá-los para tolerar algumas falhas até certo ponto e depois disso informar o usuário sobre a falha ocorrida. Um exemplo clássico citado em ~\cite{coulouris} é o do navegador \textit{web} que após um certo número de tentativas sem sucesso de carregar uma página \textit{web}, desiste de tentar carregar a página e informa o erro ao usuário;
             
-            \item Redundância: Outra forma de tornar o sistema mais tolerante a falhas é acrescentar redundância ao sistema, para que caso uma parte falhe, outras partes detectem essa falha e assumam as tarefas do módulo que falhou sem prejudicar o funcionamento do sistema como um todo. Exemplos são servidores replicados e múltiplas rotas para um destino ~\cite{coulouris};
+            \item Redundância: outra forma de tornar o sistema mais tolerante a falhas é acrescentar redundância ao sistema, para que caso uma parte falhe, outras partes detectem essa falha e assumam as tarefas do módulo que falhou sem prejudicar o funcionamento do sistema. Exemplos disso são servidores replicados e múltiplas rotas para um destino ~\cite{coulouris};
             
-            \item Recuperação de falhas: Mesmo que não seja possível evitar falhas, é importante que o sistema seja capaz de se recuperar delas. Um exemplo disso são sistemas de \textit{Journaling} no sistemas de arquivos locais e de servidores que fazem sincronismo com seus pares após alguma falha que cause a falta de sincronismo do sistema ~\cite{coulouris};
+            \item Recuperação de falhas: mesmo que não seja possível evitar falhas, é importante que o sistema seja capaz de se recuperar delas. Um exemplo disso são o uso de \textit{logs} nos sistemas de arquivos locais e de servidores que fazem sincronismo com seus pares após alguma falha que cause a falta de sincronismo do sistema ~\cite{coulouris};
             
         \end{enumerate}
     
     
     \subsection{Transparência}
     
-        Dentre diversos recursos para fornecer um sistema coerente ao usuário e esconder dele a complexidade do sistema, estão os conceitos de transparência. Como apresentado em ~\cite{tanenbaum}, é possível listar os conceitos de transparência que o projeto atual utiliza de forma mais intensiva, como por exemplo:
+        Dentre os diversos recursos para fornecer um sistema coerente ao usuário e esconder dele a complexidade do sistema, estão os conceitos de transparência. Como apresentado em ~\cite{tanenbaum}, é possível listar os conceitos de transparência que o projeto atual utiliza de forma mais intensiva, como por exemplo:
     
         \begin{itemize}
             \item Transparência de acesso: são escondidos do usuários toda a complexidade no acesso dos dados;
@@ -54,14 +53,13 @@ Neste capítulo são apresentados os conceitos sobre Sistemas de Arquivos Distri
             
             \item Transparência de replicação: ocultam do usuário os mecanismos de replicação dos dados;
             
-            \item Transparência de falhas: esconde do usuário e tenta solucionar os problemas referentes as falhas que ocorrem no sistema, de modo a evitar com que o usuário seja prejudicado quando uma falha acontece no sistema, como visto anteriormente, detectando, mascarando, tolerando, usando módulos redundantes ou até mesmo recuperando o sistema quando possivel.
+            \item Transparência de falhas: esconde do usuário e tenta solucionar os problemas referentes as falhas que ocorrem no sistema, de modo a evitar com que o usuário seja prejudicado quando uma falha acontece no sistema, como visto anteriormente, detectando, mascarando, tolerando, usando módulos redundantes ou até mesmo recuperando o sistema quando possível.
         \end{itemize}
     
         Embora todas essas camadas de transparência sejam desejadas nem sempre é possível fornecer transparência total ao usuário por questões práticas, como usabilidade, complexidade na implementação e a degradação do desemepnho que elas geram.
 
-
 \section {Sistema de Arquivos}
-    Sistemas de arquivos foram criados para oferecer ao programador uma interface padronizada de acesso aos arquivos, independente de como e onde estão armazenados ~\cite{coulouris} dentro dos dispositivos locais. 
+    Sistemas de arquivos (SA) foram criados para oferecer ao programador uma interface padronizada de acesso aos arquivos, independente de como e onde estão armazenados ~\cite{coulouris} dentro dos dispositivos locais. 
     Além dos dados (arquivos propriamente ditos), sistemas de arquivos devem armazenar também os metadados, que são informações sobre os dados (arquivos). Esses metadados comumente são os seguintes ~\cite{coulouris} (adaptado):
     
     \begin{itemize}
@@ -73,15 +71,15 @@ Neste capítulo são apresentados os conceitos sobre Sistemas de Arquivos Distri
         \item Horário de modificação;
         \item Horário de alteração de atributo;
         \item Contagem de refências;
-        \item Tipo do arquivo (diretório, arquivo, link);
+        \item Tipo do arquivo (diretório, arquivo, \textit{link});
         \item Lista de permissões de acesso.
     \end{itemize}
     
     Além de gerenciar como os arquivos são armazenados e acessados, cabe ao sistema de arquivos a responsabilidade de fazer o controle de acesso dos arquivos que ele armazena, restringindo o acesso conforme as regras definidas pelos usuários ou sistema. Essas regras normalmente podem ser expressas pelos acessos de leitura, escrita e execução dos arquivos.
     
-    Em um sistema de arquivos convencional todo acesso aos arquivos é controlado pelo \textit{kernel} do sistema operacional. O tratamento do acesso é feito pelo próprio núcleo do sistema. Em sistemas distribuídos esse tratamento é feito de forma diferente. Isso será abordado na sessão de Sistemas de Arquivos Distribuídos.
+    Em um sistema de arquivos convencional todo acesso aos arquivos é controlado pelo \textit{kernel} do sistema operacional. O tratamento do acesso é feito pelo próprio núcleo do sistema. Já em sistemas distribuídos esse tratamento é feito de forma diferente. Isso será abordado mais adiante.
     
-    Exemplos de sistemas de arquivos são: EXT2, EXT3, EXT4, XFS, ReiserFS, JFS para sistemas Unix-like e não menos importantes os FAT16, FAT32, FAT32EX, e NTFS para sistemas da Microsoft.
+    Exemplos de sistemas de arquivos são: os \textit{extended file systems} (EXT2, EXT3, EXT4), XFS, ReiserFS, \textit{Journaling FileSystem} (JFS) para sistemas \textit{Unix-like} e não menos importantes os \textit{File Allocation Table} (FAT16, FAT32, FAT32EX), e o \textit{New Technology File System} (NTFS) para sistemas da Microsoft.
 
 
 \section{Sistemas de Arquivos Distribuídos}
@@ -89,15 +87,17 @@ Neste capítulo são apresentados os conceitos sobre Sistemas de Arquivos Distri
 	 Sistemas de Arquivos Distribuídos (SAD), são sistemas que oferecem compartilhamento desses arquivos através de redes, fornecendo desempenho, integridade, confidencialidade e disponibilidade equivalentes ou superiores aos sistemas de arquivos tradicionais ~\cite{coulouris}, permitindo que programas armazenem e acesses os arquivos remotos como se fossem locais, fornecendo aos usuários liberdade para acessar seus arquivos independente do computador que utilizem, desde que dentro de uma rede local ou que tenha acesso ao sistema de arquivos distribuído utilizado.
 	 
 	 Um SAD básico pode ser descrito como é encontrado em ~\cite{coulouris}, em que o objetivo é simplesmente simular o funcionamento de um sistema de arquivos tradicional para que programas clientes executem em computadores remotos. Esses não fazem o uso de sistema de réplicas, nem suportam sistemas multimídia que exigem grandes fluxos de dados e a capacidade de fazer a entrega desses dados com uma temporização bem limitada.
-	 Analisado por essa perspectiva que é apresentada em ~\cite{coulouris} o sistema de arquivos distribuído que é alvo desse trabalho pode ser considerado um SAD não básico, pois implementa vários recursos não encontrados em sistemas básicos. Esse sistema será apresentado na próxima sessão.
+	 Analisado por essa perspectiva que é apresentada em ~\cite{coulouris} o sistema de arquivos distribuído que é alvo desse trabalho pode ser considerado um SAD não básico, pois implementa vários recursos não encontrados em sistemas básicos.
 	 
-	 Assim, para projetar um sistema de arquivos distribuído de alto desempenho capaz de armazenar grandes quantidades de dados e que suporte escrita e leitura em larga escala é necessário resolver diversos problemas complexos, como balanceamento de carga, confiabilidade, disponibilidade, segurança, e concorrência de acesso aos dados ~\cite{coulouris}.
+	 Para projetar um sistema de arquivos distribuído de alto desempenho capaz de armazenar grandes quantidades de dados e que suporte escrita e leitura em larga escala é necessário resolver diversos problemas complexos, como balanceamento de carga, confiabilidade, disponibilidade, segurança, e concorrência de acesso aos dados ~\cite{coulouris}.
+	 
+	 
 	 A seguir são elencados alguns sistemas de arquivos distribuídos que são referências clássicas e foram a base do desenvolvimento desse trabalho.
 	
 	 
 	\subsection{\textit{Network File System} (NFS)}
 	
-	    O \textit{Network File System} (NFS) foi projetado pela \textit{Sun Microsystems} para funcionar em suas estações de trabalho. Atualmente é compatível com quase todos os sistemas operacionais de grande uso. Foi lançado como o primeiro SAD destinado a ser um produto final e ter suas interfaces e protocolo abertos ao público. Sua grande compatibilidade somada a premissa de fornecer acesso transparente aos arquivos remotos através do uso das chamadas ao \textit{Virtual File System} (VSF) e do uso de \textit{Remote Procedure Call} RPC foram os grandes fatores que contribuíram para seu sucesso e sua popularização ~\cite{coulouris}. Sua arquitetura é apresentada na Figura \ref{fig:arquiteturaNFS} .
+	    O \textit{Network File System} (NFS) foi projetado pela Sun Microsystems para funcionar em suas estações de trabalho. Atualmente é compatível com quase todos os sistemas operacionais de grande uso. Foi lançado como o primeiro SAD destinado a ser um produto final e ter suas interfaces e protocolo abertos ao público. Sua grande compatibilidade somada a premissa de fornecer acesso transparente aos arquivos remotos através do uso das chamadas ao \textit{Virtual File System} (VSF) e do uso de \textit{Remote Procedure Call} RPC foram os grandes fatores que contribuíram para seu sucesso e sua popularização ~\cite{coulouris}. Sua arquitetura é apresentada na Figura \ref{fig:arquiteturaNFS} .
 	
     	\begin{figure}[h]
             \includegraphics[width=12cm]{arquiteturaNFS.png}
@@ -107,12 +107,19 @@ Neste capítulo são apresentados os conceitos sobre Sistemas de Arquivos Distri
     
     Seu projeto independente do estado do sistema (\textit{stateless}) basicamente inviabiliza a utilização de mecanismos para recuperação de falhas ~\cite{coulouris}.
     
-    O uso de cache no servidor tenta antecipar o que o cliente irá solicitar e já manter esses dados na memória para quando o cliente solicita-los possam ser entregues sem o gargalo de acesso ao disco. O uso de cache na escrita se baseia em manter o arquivo na memória por um tempo sem que o cliente o altere e só então gravar o arquivo no disco. Ainda sim existe a operação \textit{sync} que grava as informações pendentes no disco a cada 30 segundos.
-    Quanto a cache no cliente é feita através da datas de modificação dos arquivos. Caso haja discrepâncias entre cliente e servidor, o cliente é atualizado ~\cite{coulouris}.
+    O uso de \textit{cache} no servidor tenta antecipar o que o cliente irá solicitar e já manter esses dados na memória para quando o cliente solicita-los possam ser entregues sem o gargalo de acesso ao disco. O uso de \textit{cache} na escrita se baseia em manter o arquivo na memória por um tempo sem que o cliente o altere e só então gravar o arquivo no disco. Ainda sim existe a operação \textit{sync} que grava as informações pendentes no disco a cada 30 segundos.
+    A \textit{cache} no cliente é feita através da datas de modificação dos arquivos. Caso haja discrepâncias entre cliente e servidor, o cliente é atualizado ~\cite{coulouris}.
     
-    Para questões de segurança o NFS utiliza dois mecanismos externos. Para a transmissão dos dados, autenticação e comunicação do cliente com o servidor é utilizado o protocolo Kerberos v5 junto com RPCSEC\_GSS. Para proteger os dados nos clientes é utilizado o mecanismos de lista de controle de acesso (\textit{Access Control List} - ACL) que é responsável por definir as permissões para acesso aos arquivos. ~\cite{tanenbaum}.
+    Para questões de segurança o NFS utiliza dois mecanismos externos. Para a transmissão dos dados, autenticação e comunicação do cliente com o servidor é utilizado o protocolo Kerberos v5 junto com RPCSEC\_GSS. Para proteger os dados nos clientes é utilizado a lista de controle de acesso (ACL) que é responsável por definir as permissões para acesso aos arquivos. ~\cite{tanenbaum}.
     
     Quanto a desempenho, o NFS fornece uma solução satisfatória até mesmo para sistemas com grande demanda, ao utilizar diversos servidores. Mas essa solução é limitada pelo fato do sistema não fornecer suporte a replicação de arquivos para leitura e escrita (apenas a replicação para leitura é suportada). Ainda sim, mesmo que bastante difundido e utilizado o NFS carece de mecanismos de migração de dados e réplicas que estão presente em outros SAD mais avançados ~\cite{coulouris}.
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%                                                                                   %%
+    %%           REVISADO NOVAMENTE ATÉ AQUI! - Lista de Siglas geradas até aqui         %%
+    %%                                                                                   %%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     \subsection{\textit{Andrew File System} (AFS)}
     
@@ -290,7 +297,7 @@ Neste capítulo são apresentados os conceitos sobre Sistemas de Arquivos Distri
     
     \begin{figure}[ht]
     \centering
-    \includegraphics[width=10cm]{xmlrpcMessage.png}
+    \fbox{\includegraphics[width=10cm]{xmlrpcMessage.png}}
     \caption{Exemplo de mensagem XML utilizada na chamada de procedimentos remotos com XML-RPC}
     \label{fig:xmlrpcMessage}
     \end{figure}

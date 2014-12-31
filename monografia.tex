@@ -40,6 +40,9 @@
 \usepackage{mathptmx}
 \usepackage{amsmath}
 \usepackage{mathtools}
+\usepackage{empheq}
+
+
 
 % ---
 	
@@ -60,6 +63,20 @@
 \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
 
 % ---
+% Utilizado para por bordas nos protocolos
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+\newcommand{\bordaProtocolo}[1]{
+    \centering
+    \framebox{\parbox{\dimexpr\linewidth-15\fboxsep-2\fboxrule}{\itshape%
+        \vspace{2mm}
+        #1
+        \vspace{2mm}
+    }}
+}
+
+
+
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
 \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
@@ -141,6 +158,12 @@
 % ---
 \makeindex
 % ---
+
+
+
+
+
+
 
 % ----
 % Início do documento
@@ -383,11 +406,7 @@ g
 % inserir lista de abreviaturas e siglas
 % ---
 \begin{siglas}
-
-\item [fig]
-
-
-
+\include{siglas}
 \end{siglas}
 % ---
 
@@ -422,9 +441,9 @@ g
 \textual
 
 %\include{intro}
-%\include{cap2}
-%\include{cap3}
-%\include{cap4}
+\include{cap2}
+\include{cap3}
+\include{cap4}
 
 
 \include{final}
