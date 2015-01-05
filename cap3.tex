@@ -3,16 +3,15 @@
 % Deficiências do projeto atual         OK
 % Propostas de melhorias                OK
 % Documentação do Projeto               OK
-% Adaptação do servidor python          GOGOGO
-% Implementação do cliente Android      GOGOGO
+% Adaptação do servidor python          OK
+% Implementação do cliente Android      OK
 
 \chapter{Descrição e desenvolvimento do projeto}
 
 
-    Neste capítulo são apresentados o desenvolvimento da proposta do projeto e também sua implementação no FlexA. Inicialmente serão abordados as deficiências encontradas no projeto atual e a motivação para corrigi-las. Então será apresentada a documentação desenvolvida para que o projeto possa ser viável a longo prazo, e em outra sessão será detalhado as adaptações realizadas no módulo servidor para que esse passasse a ser compatível com a nova especificação. Por fim, com o novo servidor pronto, será apresentado a implementação do cliente para Android.
-
+    Neste capítulo são apresentados o desenvolvimento da proposta do projeto e também sua implementação no FlexA. Inicialmente serão abordados as deficiências encontradas no projeto atual e a motivação para corrigi-las. Então será apresentada a documentação desenvolvida para que o projeto possa ser viável a longo prazo, e em outra sessão  NA SECAO XXXX... serão detalhadas as adaptações realizadas no módulo servidor para que esse passe a ser compatível com a nova especificação. Por fim, com o novo servidor pronto, será apresentadoa a implementação do cliente para Android.
     \section{Deficiências da versão atual do FlexA}
-    
+    EU NAO CHAMARIA DE DEFICIENCIAS...  MAS DE RESTRICOES....  DEFICIENCIA AVACALHA O PROJETO DO MARIO...
     
         A versão atual do FlexA, ainda em um estágio inicial de desenvolvimento, carece de um modelo de programação bem definido, documentação formal e não menos importante de um bom protocolo de comunicação robusto.
         Os principais pontos que serão abordados nesse projeto para corrigir essas deficiências serão:
@@ -22,7 +21,6 @@
             \item Elaboração de um protocolo de comunicação bem definido.
             \item Adaptação incremental do módulo servidor para que ele passe a ser compatível com a documentação gerada.
         \end{itemize}
-        
         
         A motivação para essas melhorias é que elas fornecerão uma base sólida para que no futuro possam ser incorporados no projeto atual os resultados de trabalhos já realizados em versões anteriores do FlexA, que são listados pelos títulos:
         
@@ -106,7 +104,7 @@
         
         \subsection{Protocolos de Comunicação Cliente-Servidor}
         
-        Com as funcionalidades que são esperadas do sistema e a interface de comunicação definida, foi feita a analise das comunicações entre cliente e servidor. Formalizou-se então os protocolos de comunicação, utilizando a notação para protocolos de comunicação apresentada em ~\cite{ross} que é mostrada na tabela \ref{tab:notacao}.
+        Com as funcionalidades que são esperadas do sistema e a interface de comunicação definida, foi feita a analise das comunicações entre cliente e servidor. Formalizou-se então os protocolos de comunicação, utilizando a notação para protocolos de comunicação apresentada em ~\cite{ross} que é mostrada na tabela \ref{tab:notacao}.  A TABELA APARECEU ANTES DE SER CITADA NO TEXTO
         
         \begin{table}
         
@@ -350,20 +348,96 @@
         Com todos esses protocolos definidos e formalizados o sistema possui documentação suficiente para passar para a faze de implementação da versão Android do módulo cliente.
         
         
-        
-    
-    
-    
-    
-    
         \section{Adaptação do servidor em Python}
+        
+        % Implementação das funções da interface de comunicação
+        % alterações no banco de dados (share)
+        
+        Ao que diz respeito ao módulo servidor, a parte envolvida nesse trabalho é a de comunicação com o cliente. Dessa forma foi necessário implementar as funções definidas na figura \ref{fig:interfaceComunicacao}, utilizando os protocolos definidos na sessão anterior.
+        
+        As novas funções foram agregadas ao servidor, de forma que ele ainda mantenha a compatibilidade com o módulo cliente em Python existente. Quando o módulo cliente for remodelado para trabalhar igual ao novo cliente desenvolvido será necessário apenas remover as funções de comunicação antigas e sem uso do servidor.
+        
+        Outra alteração que se fez necessária no módulo servidor foi a criação de uma nova entidade para armazenar os metadados do compartilhamento dos arquivos entre os usuários. Isso foi feito com a criação de uma nova classe para o mapeamento objeto-relacional utilizado ou \textit{Object-Relational Mapping} (ORM) com SQLAlchemy e SQLite. Essa nova classe é apresentada na figura \ref{fig:shareORM}. Essas alterações foram feitas de acordo com o que é recomendado por ~\cite{sqlalchemy}.
+        
+        \begin{figure}
+        \centering
+        \includegraphics[width=14cm]{shareORM.png}
+        \caption{Diagrama de classes mostrando a classe \textit{Share}, responsável por armazenar os metadados sobre o compartilhamento dos arquivos.}
+        \label{fig:shareORM}
+        \end{figure}
+        
+        \section{Módulo Cliente para Android}
+        
+        % - Estudo do Android
+        % - Organização do projeto
+        % - Modularização
+        % - GUI
+     
+        Um módulo cliente implementado em outra arquitetura é de grande interesse como caso de teste de que as alterações propostas tornam o FlexA capaz de executar em sistemas diferentes e também testar sua nova interface de comunicação, e ainda fornecer ao usuário outra alternativa de uso do sistema e mais uma plataforma de testes para o desenvolvimento do projeto no futuro.
+        
+        \subsection{Organização}
+        
+        Uma das principais contribuições do cliente para Android ao projeto original é a modularização e organização do projeto, separando as funcionalidades e implementação de recursos em pacotes bem definidos com o uso de interfaces de desenvolvimento que forneçam flexibilidade ao projeto.
+        
+        A modularização do projeto atual é mostrada através da arvore de pacotes. Dentro de cada pacote permanecem apenas implementações de tarefas do mesmo tipo. Essa arvore é apresentada na figura \ref{fig:arvorePacotesAndroid}.
+        
+        \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=14cm]{pacotesGabriel.png}
+        \caption{Hierarquia de pacotes que compõe o módulo Cliente para Android}
+        \label{fig:arvorePacotesAndroid}
+        \end{figure}
+        
+        Da forma como o sistema está estruturado, quando no futuro for necessário alterar o módulo cliente ou até mesmo implementar o módulo servidor para Android ou em Java, essa tarefa será bem simples de ser feita pois toda a estrutura do sistema estará pronta, e assim o módulo servidor poderá importar apenas os pacotes que necessita, sem que para isso, seja necessário carregar junto funções e bibliotecas desnecessárias.
+        
+        \subsection{Modularização e Flexibilidade}
+        
+        A modularização do projeto se da não apenas pelo uso de pacotes e separação do código em classes bem definidas. Para que o projeto possa se manter a longo prazo flexível, são utilizadas diversas interfaces para garantir que caso seja necessário realizar alterações em mecanismos de comunicação e na interface gráfica do usuário ou \textit{Graphical User Interface} (GUI), essas alterações sejam simples de serem implementadas. Os principais pontos tratados utilizando interfaces são listados a seguir.
+        
+       
+         \subsubsection{Encapsulamento da complexidade do FlexA}
+        Embora o XML-RPC forneça um alto grau de encapsulamento da comunicação, ainda é necessário obter uma forma de simplificar o acesso as funções fornecidas pelos servidores XML-RPC e toda a sequência funções que devem ser feitas. Esse encapsulamento é obtido utilizando a classe \textit{Client}, que é mostrada na figura \ref{fig:clientClass}. Dessa forma caso aconteça qualquer alteração nos protocolos ou nos parâmetros o resto do cliente não precisa ser alterado, ou irá precisar de apenas pequenos ajustes.
+        
+        \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=14cm]{classeCliente.png}
+        \caption{Classe \textit{Client}, responsável por ocultars servidores e manipulação dos arquivos.}
+        \label{fig:clientClass}
+        \end{figure}
+        
+        
+         \subsubsection{Encapsulamento da comunicação com os servidores que utilizam XML-RPC}
+         
+        Ainda sim, para isolar o módulo cliente do cliente XML-RPC utilizado existe a classe \textit{FlexaServer} que é apresentada na figura \ref{fig:flexaServer}. Essa classe é a responsável por se conectar com os servidores RPC e implementar as operações  do lado do cliente mostradas na sessão anterior na figura \ref{fig:interfaceComunicacao}.
+        
+        \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=14cm]{flexaServerClass.png}
+        \caption{Caption}
+        \label{fig:flexaServer}
+        \end{figure}
+        
+        
+        \subsection{Interface Gráfica do Usuário no Android}
+        
+        Com as classes \textit{FlexaServer} e \textit{Client}, o resto do módulo cliente fica confortavelmente encapsulado e livre da comunicação com os servidores, devendo assim apenas cuidar da entrada e saída dos dados e da comunicação com o usuário do sistema através de uma interface gráfica. Uma das telas do sistema é exibida na figura \ref{fig:flexaGuiModel}.
+        
+        \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=14cm]{flexaGuiModel.png}
+        \caption{Exemplo de interface gráfica listando os arquivos do usuário.}
+        \label{fig:flexaGuiModel}
+        \end{figure}
+        
+        A utilização de uma GUI para Android embora seja necessária para a comodidade do usuário final, é bem mais complexa que a implementação para interface de linha de comando ou \textit{Command-line Interface} (CLI) que existe atualmente no cliente em Python. Para obter um resultado satisfatório no uso de uma GUI, é necessário tratar de forma assíncrona e também utilizar \textit{callbacks} nas operações de entrada e saída, de modo a evitar o congelamento do aplicativo ao realizar essas tarefas ~\cite{androidAssyncTask}. Dois exemplos dessas tarefas são mostradas na figura \ref{fig:assyncCallback}.
+        
+        \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=14cm]{assyncCallback.png}
+        \caption{Exemplo de duas tarefas assíncronas, uma feita via XML-RPC (\textit{listFiles}) e outra via \textit{socket} (\textit{scanServers}).}
+        \label{fig:assyncCallback}
+        \end{figure}
+        
+        O diagrama de classes completo do sistema é apresentado no apêndice \ref{apendice:1}.
+        
     
-    
-        
-        
-        \section{Módulo Cliente desenvolvido Android}
-        
-        
-        Implementar o módulo cliente para dispositivos móveis que utilizem Android é uma tarefa bem mais complexa que a implementação para interface de linha de comando ou Command-line Interface (CLI) que existe atualmente, pois para se obter um resultado satisfatório é necessário o uso de tarefas assíncronas nas operações de entrada e saída, de modo a evitar o congelamento do aplicativo ao realizar essas tarefas ~\cite{androidAssyncTask}, além da complexidade de exibir as informações utilizando interface gráfica de usuário (GUI).
-        
-        Dessa forma o foco do desenvolvimento da versão Android do FlexA focou principalmente na conectividade e no uso dos padrões de desenvolvimento estabelecidos com a formalização dos protocolos de comunicação entre cliente e servidor. Como primeiro passo para nortear o desenvolvimento de módulos compatives com o FlexA foi a criação de uma interface de comunicação padrão que garante a compatibilidade entre módulos feitos em linguagens diferentes, desde que utilizado o XML-RPC para a comunicação. Essa interface de comunicação é apresentada na figura \ref{fig:interfaceComunicacao}.
