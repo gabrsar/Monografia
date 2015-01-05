@@ -1,3 +1,6 @@
+%% Revisado por Gabriel Saraiva
+%% Revisado por Renata
+
 %% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
@@ -44,10 +47,15 @@
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 \usepackage{etoolbox}
 
+\usepackage{float}
+
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
+
+\floatstyle{plaintop}
+\restylefloat{table}
 
 \graphicspath{ {img/} } % Local das imagens
 \apptocmd{\sloppy}{\hbadness 10000\relax}{}{} %
@@ -102,7 +110,7 @@
 \autor{Gabriel Henrique Martinez Saraiva}
 \local{São José do Rio Preto}
 \data{2014}
-\orientador[Prof. Dr.]{Renata Spolon Lobato}
+\orientador[Profa. Dra.]{Renata Spolon Lobato}
 
 %%inserir caso ouver%% -> \coorientador{}
 
@@ -117,7 +125,7 @@
 \tipotrabalho{Monografia de Qualificação}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Monografia ao Departamento de Ciências de  Computação  e  Estatística  do  Instituto  de Biociências,  Letras  e  Ciências  Exatas  da Universidade  Estadual  Paulista  ”Júlio  de  Mesquita Filho”,  como  parte  dos  requisitos  necessários  para obtenção do título de "Bacharel" pelo curso de Bacharel em Ciência  da Computação da UNESP}
+\preambulo{Monografia apresentada ao Departamento de Ciências de  Computação  e  Estatística  do  Instituto  de Biociências,  Letras  e  Ciências  Exatas  da Universidade  Estadual  Paulista  ”Júlio  de  Mesquita Filho”,  como  parte  dos  requisitos  necessários  para obtenção do título de "Bacharel" em Ciência  da Computação da UNESP}
 % ---
 
 % informações do PDF
@@ -369,22 +377,12 @@ Agradeço a todos que algum dia, de alguma forma colaboraram para que se tornass
 
 % resumo em inglês
 \begin{resumo}[Abstract]
- \begin{otherlanguage*}{english}
- 
-    TODO - PEGAR COM O VICTOR HUGO CANDIDO!!!!\\
-    TODO - PEGAR COM O VICTOR HUGO CANDIDO!!!!\\
-    TODO - PEGAR COM O VICTOR HUGO CANDIDO!!!!\\
-    TODO - PEGAR COM O VICTOR HUGO CANDIDO!!!!\\
-    TODO - PEGAR COM O VICTOR HUGO CANDIDO!!!!\\
-    TODO - PEGAR COM O VICTOR HUGO CANDIDO!!!!\\
-    TODO - PEGAR COM O VICTOR HUGO CANDIDO!!!!
-    
 
-   \vspace{\onelineskip}
- 
-   \noindent 
-   \textbf{Key-words}: mobile devices, distributed file systems
- \end{otherlanguage*}
+   This work is a bibliographical survey on distributed systems, distributed file systems, mobile devices and Android, and use of remote procedure calls (RPC).
+
+Serving as theoric foundation, this survey underlies the work execution, which is basically focused in two big sections, the first one being about the standartization of FlexA (Flexible and Adaptable Distributed File System), developed at GSPD (Parallel and Distributed Systems Research Group), developing a cohesive documentation based on class diagrams, functional use cases and communication protocols. The role of this documentation is to allow further progress of the project. And in the second part are: the server module adaptation, so that it becomes compatible with communication interfaces and with the proposed protocols; and the implementation of an Android client so that the system can be dinamically and easily utilized by users.
+
+\textbf{keywords}: Android, remote procedures call, distributed systems, distributed file systems.
 \end{resumo}
 
 
@@ -474,8 +472,11 @@ Agradeço a todos que algum dia, de alguma forma colaboraram para que se tornass
 % Imprime uma página indicando o início dos apêndices
 \partapendices
 
-% ----------------------------------------------------------
+\begin{appendices}
 \input{apendices/ap1}
+\end{appendices}
+% ----------------------------------------------------------
+
 % ----------------------------------------------------------
 
 \end{apendicesenv}

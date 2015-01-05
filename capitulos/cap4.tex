@@ -1,10 +1,13 @@
+%% Revisado por Gabriel Saraiva
+
 \chapter{Testes, resultados e avaliações}
+\label{cap4}
 
 Nesse capítulo serão apresentados os ambientes de testes e os resultados obtidos.
 
 \section{Ambiente de Testes}
 
-    O ambiente de testes utilizou os equipamentos disponíveis no laboratório do GSPD (Grupo de Sistemas Paralelos e Distribuídos) e um celular próprio.
+    O ambiente de testes utilizou os equipamentos disponíveis no laboratório do GSPD e um celular próprio.
     
     Esses equipamentos são:
     
@@ -66,7 +69,7 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     
 \section{Compatibilidade do sistema}
 
-    Como o módulo cliente implementado do FlexA deve ser compatível com o módulo existente, foram feitos testes semelhantes aos de inegridade mostrado anteriormente, exceto que os arquivos eram inseridos no FlexA pelo cliente em Python e depois recuperados pelo cliente Android e vice e versa. Na figura \ref{fig:testeCompatibilidade} são apresentados os resultados desse teste.
+    Como o módulo cliente implementado do FlexA deve ser compatível com o módulo existente, foram feitos testes semelhantes aos de integridade mostrado anteriormente, exceto que os arquivos eram inseridos no FlexA pelo cliente em Python e depois recuperados pelo cliente Android e vice e versa. Na figura \ref{fig:testeCompatibilidade} são apresentados os resultados desse teste.
     
     \begin{figure}[!ht]
     \centering
@@ -86,7 +89,7 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     \label{fig:testesCriptografia}
     \end{figure}
     
-    Como esperado o computador do cluster foi capaz de criptografar os arquivos aproximadamente 10 vezes mais rápido que o \textit{tablet} e 11 vezes mais rápido que o \textit{smart-phone}.
+    Como esperado o computador do \textit{cluster} foi capaz de criptografar os arquivos aproximadamente 10 vezes mais rápido que o \textit{tablet} e 11 vezes mais rápido que o \textit{smart-phone}.
     
 \section{Desempenho de transmissão dos dados}
 
@@ -100,7 +103,3 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     \end{figure}
     
     Como esperado o computador do cluster foi capaz de enviar e receber os arquivos aproximadamente 20 vezes mais rápido que o \textit{tablet} e o \textit{smart-phone}, já que está conectado aos servidores do FlexA via rede \textit{gigabit}. Os resultados das transmissões dos dispositivos móveis mostra que embora existam três servidores o ganho de desempenho por utilizá-los é insignificante, pois o gargalo nesse caso é a transmissão sem fio dos dados.
-    
-
-
-    

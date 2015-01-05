@@ -1,25 +1,31 @@
 % Ideia desse capitulo: Apresentar o desenvolvimento do projeto-
 % 
-% Deficiências do projeto atual         OK
+%% Revisado por Gabriel Saraiva
+
+% Restrições do projeto atual         OK
 % Propostas de melhorias                OK
 % Documentação do Projeto               OK
 % Adaptação do servidor python          OK
 % Implementação do cliente Android      OK
 
 \chapter{Descrição e desenvolvimento do projeto}
+\label{cap3}
 
-
-    Neste capítulo são apresentados o desenvolvimento da proposta do projeto e também sua implementação no FlexA. Inicialmente serão abordados as deficiências encontradas no projeto atual e a motivação para corrigi-las. Então será apresentada a documentação desenvolvida para que o projeto possa ser viável a longo prazo, e em outra sessão  NA SECAO XXXX... serão detalhadas as adaptações realizadas no módulo servidor para que esse passe a ser compatível com a nova especificação. Por fim, com o novo servidor pronto, será apresentadoa a implementação do cliente para Android.
-    \section{Deficiências da versão atual do FlexA}
-    EU NAO CHAMARIA DE DEFICIENCIAS...  MAS DE RESTRICOES....  DEFICIENCIA AVACALHA O PROJETO DO MARIO...
+    Neste capítulo são apresentados o desenvolvimento da proposta do projeto e também sua implementação no FlexA. Inicialmente serão abordados as restrições encontradas no projeto atual e a motivação para corrigi-las. Então será apresentada a documentação desenvolvida para que o projeto possa ser viável a longo prazo, então serão detalhadas as adaptações realizadas no módulo servidor para que esse passe a ser compatível com a nova especificação. Por fim, com o novo servidor pronto, será apresentado a implementação do cliente para Android.
     
-        A versão atual do FlexA, ainda em um estágio inicial de desenvolvimento, carece de um modelo de programação bem definido, documentação formal e não menos importante de um bom protocolo de comunicação robusto.
-        Os principais pontos que serão abordados nesse projeto para corrigir essas deficiências serão:
+    %% Para não avacalhar com o projeto do Mario (rsrsrs eu ri disso)... O termo é muito engraçado. Não fiz por mal =)
+    
+    \section{Restrições da versão atual do FlexA}
+    
+        A versão atual do FlexA, ainda em um estágio inicial de desenvolvimento, carece de um modelo de programação bem definido, sua documentação precisa ser aprofundada e não menos importante de um protocolo de comunicação precisa ser bem explicitado.
+        
+        Os principais pontos que serão abordados nesse projeto serão:
         
         \begin{itemize}
             \item Documentação documentação inicial do projeto, como um diagrama de classes, casos de uso e também um diagrama com os módulos do sistema e como eles se integram.
-            \item Elaboração de um protocolo de comunicação bem definido.
+            \item Formalização do protocolo de comunicação.
             \item Adaptação incremental do módulo servidor para que ele passe a ser compatível com a documentação gerada.
+            \item Implementação do módulo cliente para Android.
         \end{itemize}
         
         A motivação para essas melhorias é que elas fornecerão uma base sólida para que no futuro possam ser incorporados no projeto atual os resultados de trabalhos já realizados em versões anteriores do FlexA, que são listados pelos títulos:
@@ -36,11 +42,10 @@
     Além de tornar mais fácil a incorporação dos resultados obtidos com os trabalhos citados, a nova documentação deve tornar o sistema fácil de se manter e evoluir e permitir que diversas equipes colaborem com o trabalho de forma simultânea.
     
     
-    
         
     \section{Documentação do projeto}
         
-    Um estudo a fundo do sistema foi realizado, utilizando a documentação que existia e a análise do código-fonte, para entender o real funcionamento e comportamento do sistema e como era definida a estrutura atual do projeto. 
+    Um estudo a fundo do sistema foi feito, utilizando a documentação que existia e a análise do código-fonte, para entender o funcionamento e comportamento do sistema e também como era definida a estrutura atual do projeto. 
     
     \subsection{Módulos do Sistema}
     
@@ -66,12 +71,9 @@
         \label{fig:classesMario}
         \end{figure}
              
-
-    
-        Analisando o diagrama de classes apresentado na Figura \ref{fig:classesMario} é possível perceber que muitas atividades diferentes e classes distintas pertencem a um mesmo pacote. 
+        Analisando o diagrama de classes apresentado na Figura \ref{fig:classesMario} é possível perceber que muitas atividades diferentes e classes distintas pertencem a um mesmo pacote.
         
-        
-        Conforme a proposta desse trabalho, desenvolver um cliente para Android do FlexA e melhorar os quesitos de abertura do FlexA, se mostrou necessário realizar alterações no projeto para que fosse possível a execução desses objetivos sem comprometer a flexibilidade do projeto no futuro.
+        Conforme a proposta desse trabalho, desenvolver um cliente para Android e melhorar os quesitos de abertura do FlexA, se mostrou necessário realizar alterações no projeto para que fosse possível a execução desses objetivos sem comprometer a flexibilidade do projeto no futuro.
         
         \subsection{Diagrama de Casos de Uso}
         
@@ -83,19 +85,16 @@
         \caption{Diagrama de Casos de uso com os requisitos funcionais do FlexA.}
         \label{fig:casosDeUsoGabriel}
         \end{figure}
-        
-        
+    
         Dos casos de uso apresentados na figura \ref{fig:casosDeUsoGabriel}, serão implementados e utilizados nesse trabalho apenas os referentes ao módulo cliente devido ao escopo do projeto. Os restantes foram definidos juntos para preparar os trabalhos futuros, uma vez que o momento era oportuno.
-        
-        
         
         \subsection{Interface de Comunicação Cliente-Servidor}
         
-        Já com os objetivos do trabalho definidos, e uma documentação básica criada que permitisse entender o projeto foi então formulada a interface que servirá de alicerce desse trabalho. Responsável por padronizar e fornecer as comunicações entre o cliente e o servidor. Essa interface foi desenvolvida em reunião com os outros desenvolvedores do FlexA para que fossem atendidas todas as necessidades do projeto, e é apresentada na figura \ref{fig:interfaceComunicacao}
+        Já com os objetivos do trabalho definidos, e uma documentação do que existia que permitisse entender o projeto foi então formulada a interface que servirá de alicerce desse trabalho que será responsável por padronizar e fornecer as comunicações entre o cliente e o servidor. Essa interface, que é apresentada na figura   \ref{fig:interfaceComunicacao}, foi desenvolvida em reunião com os outros desenvolvedores do FlexA para que fossem atendidas todas as necessidades do projeto.
        
         \begin{figure}
         \centering
-        \includegraphics[width=14cm]{interfaceCom.png}
+        \includegraphics[width=15cm]{interfaceCom.png}
         \caption{Interface de comunicação dos servidores do FlexA.}
         \label{fig:interfaceComunicacao}
         \end{figure}
@@ -104,15 +103,15 @@
         
         \subsection{Protocolos de Comunicação Cliente-Servidor}
         
-        Com as funcionalidades que são esperadas do sistema e a interface de comunicação definida, foi feita a analise das comunicações entre cliente e servidor. Formalizou-se então os protocolos de comunicação, utilizando a notação para protocolos de comunicação apresentada em ~\cite{ross} que é mostrada na tabela \ref{tab:notacao}.  A TABELA APARECEU ANTES DE SER CITADA NO TEXTO
+        Com as funcionalidades que são esperadas do sistema e a interface de comunicação definida, foi feita a analise das comunicações entre cliente e servidor. Formalizou-se então os protocolos de comunicação, utilizando a notação para protocolos de comunicação apresentada em ~\cite{ross} que é mostrada na tabela \ref{tab:notacao}. 
         
-        \begin{table}
+        \begin{table}[!ht]
         
         \centering
         \begin{tabular}{|l|l|}
         \hline
         
-        $C$ & módulo cliente ou usuário \\
+        $C$ & módulo cliente \\
         \hline
         $S$ & módulo servidor \\
         \hline
@@ -147,7 +146,7 @@
         \label{fig:protMetadadosUsuario}
         \end{figure}
         
-        Com os metadados do usuário (\textit{userID} e \textit{homeKey} que é o identificador se sua pasta raiz) o usuário pode começar a utilizar o sistema enviando e recebendo arquivos.
+        Com os metadados do usuário (\textit{userID} e \textit{homeKey} que é o identificador de sua pasta raiz) o usuário pode começar a utilizar o sistema enviando e recebendo arquivos.
         
         Para que o usuário possa enviar um arquivo para o sistema é necessário verificar se existe um arquivo com o mesmo nome no mesmo endereço especificado através do \textit{salt}. Caso o arquivo não exista ainda, é feito o cadastro e solicitado o \textit{salt} referente ao arquivo. Na figura \ref{fig:protGetSalt} é formalizado o protocolo de requisição do \textit{salt} de um arquivo. É importante ressaltar que \textit{fileName} é composto pelo nome completo do arquivo com o diretório em que o arquivo se encontra. Esse endereço é relativo ao diretório mapeado do FlexA para o usuário. Esse protocolo é implementado pela função \textit{get\_salt}, que é apresentada na figura \ref{fig:interfaceComunicacao}.
 
@@ -160,9 +159,9 @@
         \label{fig:protGetSalt}
         \end{figure}
         
-        Caso o \textit{salt} retornado pelo servidor seja igual $0$ é assumido que esse arquivo ainda não existe no servidor com esse nome, e então o próprio cliente gera um \textit{salt} para esse arquivo.
+        Caso o \textit{salt} retornado pelo servidor seja igual $0$ é assumido que esse arquivo ainda não existe no servidor, e então o próprio cliente gera um \textit{salt} para esse arquivo.
         
-        Já com o \textit{salt}, o módulo cliente gera o trio de chaves para o arquivo (VK, RK e WK), criptografa o arquivo utilizando a RK, faz a divisão do arquivo em $N$ porções de acordo com o tamanho do arquivo, ($N$ e o tamanho do arquivo são configurações definidas pelo usuário) caso necessário e envia cada porção para um servidor. Primeiro o módulo cliente faz o cadastro do arquivo no servidor e então envia as porções. Na figura \ref{fig:protSendFile} é descrito o protocolo o cadastro do arquivo, onde $N$ é o número de porções em que o arquivo foi dividido, $directoryKey$ é o identificador do diretório que o arquivo está e $fileType$ é o tipo do arquivo (diretório ou arquivo comum). Esse protocolo é implementado pela função \textit{negociate\_store\_part}, que é apresentada na figura \ref{fig:interfaceComunicacao}.
+        Já com o \textit{salt}, o módulo cliente gera o trio de chaves para o arquivo (VK, RK e WK) de acordo com a figura \ref{fig:chavesFlexa} , criptografa o arquivo utilizando a RK, faz a divisão do arquivo em $N$ porções de acordo com o tamanho do arquivo, ($N$ e o tamanho do arquivo são configurações definidas pelo usuário) caso necessário e envia cada porção para um servidor. Primeiro o módulo cliente faz o cadastro do arquivo no servidor e então envia as porções. Na figura \ref{fig:protSendFile} é descrito o protocolo utilizado no cadastro do arquivo, onde $N$ é o número de porções em que o arquivo foi dividido, $directoryKey$ é o identificador do diretório que o arquivo está e $fileType$ é o tipo do arquivo (diretório ou arquivo comum). Esse protocolo é implementado pela função \textit{negociate\_store\_part}, que é apresentada na figura \ref{fig:interfaceComunicacao}.
         
         \begin{figure}[!ht]
         \bordaProtocolo{
@@ -229,7 +228,7 @@
         
         Com a lista dos servidores que possuem as partes do seu arquivo o cliente pode finalmente requisitar as partes do arquivo. Esse processo é feito de acordo com o protocolo apresentado pela figura \ref{fig:protNegociateGetPart} e é implementado pela função \textit{negociate\_get\_parts}, que é apresentada na figura \ref{fig:interfaceComunicacao}.
         
-                \begin{figure}[!ht]
+        \begin{figure}[!ht]
         \bordaProtocolo{
             Para $i$ de $1$ até $N$:\\
                 $C \rightarrow S_{i}: verifyKey,part{i},ip,port$
@@ -253,7 +252,7 @@
         
         Uma vez que o cliente tenha todas as partes do arquivo a junção dessas partes é feita e o arquivo é descriptografado utilizando a chave de criptografia \textit{read key} que apenas o cliente possui.
         
-        A operação de atualização de um arquivo nos servidores é equivalente a remover o arquivo atual e cadastrar um novo arquivo. Como o protocolo de envio de arquivos já foi apresentado nas figuras \ref{fig:protSendFile} e \ref{fig:protSendFileData}, são feitas a seguir a definição da do protocolo de remoção de um arquivo dos servidores. Esse protocolo é apresentado na figura \ref{fig:protRemoveFile} e é implementado pela função \textit{remove\_file} da figura \ref{fig:interfaceComunicacao}.
+        A operação de atualização de um arquivo nos servidores é equivalente a remover o arquivo atual e cadastrar um novo arquivo. Como o protocolo de envio de arquivos já foi apresentado nas figuras \ref{fig:protSendFile} e \ref{fig:protSendFileData}, são feitas a seguir a definição do protocolo de remoção de um arquivo dos servidores. Esse protocolo é apresentado na figura \ref{fig:protRemoveFile} e é implementado pela função \textit{remove\_file} da figura \ref{fig:interfaceComunicacao}.
         
         \begin{figure}[!ht]
         \bordaProtocolo{
@@ -265,7 +264,7 @@
         \end{figure}
         
         
-        Como definido pelo protocolo de remoção de arquivos, deve fazer a busca dos servidores que possuem as partes do arquivo desejado, utilizando o protocolo já especificado na figura \ref{fig:protWhoHasParts}. Então o cliente envia ao servidor o arquivo que deseja excluir e a chave de escrita no arquivo. O cliente deve fazer isso para todos os servidores. Essa operação é feita no cliente para manter a filosofia do FlexA de trazer a complexidade de processamento e comunicação para o cliente.
+        Como definido pelo protocolo de remoção de arquivos, o cliente deve fazer a busca dos servidores que possuem as partes do arquivo desejado, utilizando o protocolo já especificado na figura \ref{fig:protWhoHasParts}. Então o cliente envia ao servidor o identificador do arquivo que deseja excluir e a chave de escrita no arquivo. O cliente deve fazer isso para todos os servidores. Essa operação é feita no cliente para manter a filosofia do FlexA de trazer a complexidade de processamento e comunicação para o cliente.
         
         Além de enviar, listar, excluir e atualizar os arquivos remotos uma operação que também é de grande importância é a de mover arquivos para outro diretório. No FlexA essa operação é feita totalmente no módulo servidor de forma que o cliente não necessita enviar novamente o arquivo ao move-lo de diretório. Essa operação tem o protocolo de comunicação especificado na figura \ref{fig:protMoveFile}, e é implementado pela função \textit{move\_file} da figura \ref{fig:interfaceComunicacao}.
         
@@ -278,7 +277,7 @@
         \end{figure}
         
         
-        Outro recurso muito importante do FlexA é o compartilhamento de arquivos, que é implementado através do compartilhamento das chaves de criptografia. Para que seja possível fazer o compartilhamento e armazenar o estado deles o servidor cadastra esses dados criptografados utilizando a chave pública do usuário que recebe a autorização para acessar o arquivo compartilhado. O protocolo de comunicação para a execução desse procedimento é apresentado na figura \ref{fig:protShareFile}, e é implementado pela função \textit{share\_file} da figura \ref{fig:interfaceComunicacao}.
+        Outro recurso muito importante do FlexA é o compartilhamento de arquivos, que é implementado através do compartilhamento das chaves de criptografia. Para que seja possível fazer o compartilhamento e armazenar o estado deles o servidor cadastra esses dados criptografados, utilizando a chave pública do usuário que recebe a autorização para acessar o arquivo compartilhado. O protocolo de comunicação para a execução desse procedimento é apresentado na figura \ref{fig:protShareFile}, e é implementado pela função \textit{share\_file} da figura \ref{fig:interfaceComunicacao}.
         
         \begin{figure}[!ht]
         \bordaProtocolo{
@@ -314,7 +313,8 @@
         \label{fig:protRemoveShare}
         \end{figure}
         
-        Vale ressaltar que embora seja custoso computacionalmente ter que recriptografar os arquivos que foram compartilhados, o FlexA possui bons mecanismos para fazer essa operação, que foram propostos ~\cite{silas} e estudados e implementados por ~\cite{leandro} %% Leandro Gatinho :D huahruahruh S2
+        Vale ressaltar que embora seja custoso computacionalmente ter que recriptografar os arquivos que foram compartilhados, o FlexA possui bons mecanismos para fazer essa operação, que foram propostos ~\cite{silas}, estudados e implementados por ~\cite{leandro} 
+        
         
         Esses são todos os protocolos que coordenam a comunicação entre o módulo cliente e o servidor (e vice e versa) para a manipulação de arquivos. Além desses protocolos ainda existem os que são utilizados para a obtenção dos metadados dos servidores, que são apresentados a seguir.
         
@@ -324,8 +324,7 @@
         Para que o cliente possa se comunicar com um servidor ele deve conhece-lo, isso inclui saber seu \textit{serverID}, e o estado atual dos recursos do servidor.
         
         O protocolo que rege a comunicação para a obtenção do ID do servidor é apresentado na figura \ref{fig:protGetServerID} e é implementado pela função \textit{get\_server\_id} da figura \ref{fig:interfaceComunicacao}.
-        
-        
+
         \begin{figure}[!ht]
         \bordaProtocolo{
             $S \rightarrow C: serverID$
@@ -346,7 +345,6 @@
          \end{figure}
         
         Com todos esses protocolos definidos e formalizados o sistema possui documentação suficiente para passar para a faze de implementação da versão Android do módulo cliente.
-        
         
         \section{Adaptação do servidor em Python}
         
@@ -373,13 +371,13 @@
         % - Modularização
         % - GUI
      
-        Um módulo cliente implementado em outra arquitetura é de grande interesse como caso de teste de que as alterações propostas tornam o FlexA capaz de executar em sistemas diferentes e também testar sua nova interface de comunicação, e ainda fornecer ao usuário outra alternativa de uso do sistema e mais uma plataforma de testes para o desenvolvimento do projeto no futuro.
+        Um módulo cliente implementado em outra arquitetura é de grande interesse como caso de teste de que as alterações propostas tornam o FlexA capaz de executar em sistemas diferentes e também testar sua nova interface de comunicação, e ainda fornecer ao usuário outra alternativa de uso do sistema.
         
         \subsection{Organização}
         
         Uma das principais contribuições do cliente para Android ao projeto original é a modularização e organização do projeto, separando as funcionalidades e implementação de recursos em pacotes bem definidos com o uso de interfaces de desenvolvimento que forneçam flexibilidade ao projeto.
         
-        A modularização do projeto atual é mostrada através da arvore de pacotes. Dentro de cada pacote permanecem apenas implementações de tarefas do mesmo tipo. Essa arvore é apresentada na figura \ref{fig:arvorePacotesAndroid}.
+        A modularização do trabalho desenvolvido é mostrada através da arvore de pacotes. Dentro de cada pacote permanecem apenas implementações de tarefas do mesmo tipo. Essa arvore é apresentada na figura \ref{fig:arvorePacotesAndroid}.
         
         \begin{figure}[!ht]
         \centering
@@ -392,11 +390,11 @@
         
         \subsection{Modularização e Flexibilidade}
         
-        A modularização do projeto se da não apenas pelo uso de pacotes e separação do código em classes bem definidas. Para que o projeto possa se manter a longo prazo flexível, são utilizadas diversas interfaces para garantir que caso seja necessário realizar alterações em mecanismos de comunicação e na interface gráfica do usuário ou \textit{Graphical User Interface} (GUI), essas alterações sejam simples de serem implementadas. Os principais pontos tratados utilizando interfaces são listados a seguir.
+        A modularização do projeto se da não apenas pelo uso de pacotes e separação do código em classes bem definidas. Para que o projeto possa se manter a longo prazo flexível, são utilizadas diversas interfaces para garantir que caso seja necessário realizar alterações em mecanismos de comunicação e na interface gráfica do usuário ou \textit{Graphical User Interface} (GUI), essas alterações sejam simples de serem implementadas. Os principais pontos são listados a seguir.
         
-       
          \subsubsection{Encapsulamento da complexidade do FlexA}
-        Embora o XML-RPC forneça um alto grau de encapsulamento da comunicação, ainda é necessário obter uma forma de simplificar o acesso as funções fornecidas pelos servidores XML-RPC e toda a sequência funções que devem ser feitas. Esse encapsulamento é obtido utilizando a classe \textit{Client}, que é mostrada na figura \ref{fig:clientClass}. Dessa forma caso aconteça qualquer alteração nos protocolos ou nos parâmetros o resto do cliente não precisa ser alterado, ou irá precisar de apenas pequenos ajustes.
+         
+        Embora o XML-RPC forneça um alto grau de encapsulamento da comunicação, ainda é necessário obter uma forma de simplificar o acesso as funções fornecidas pelos servidores XML-RPC e toda a sequência ações que devem ser feitas. Esse encapsulamento é obtido utilizando a classe \textit{Client}, que é mostrada na figura \ref{fig:clientClass}. Dessa forma caso aconteça qualquer alteração nos protocolos ou nos parâmetros o resto do cliente não precisa ser alterado, ou irá precisar de apenas pequenos ajustes.
         
         \begin{figure}[!ht]
         \centering
@@ -413,7 +411,7 @@
         \begin{figure}[!ht]
         \centering
         \includegraphics[width=14cm]{flexaServerClass.png}
-        \caption{Caption}
+        \caption{Interface de comunicação com os servidores XML-RPC.}
         \label{fig:flexaServer}
         \end{figure}
         
@@ -438,6 +436,6 @@
         \label{fig:assyncCallback}
         \end{figure}
         
-        O diagrama de classes completo do sistema é apresentado no apêndice \ref{apendice:1}.
+        O diagrama de classes completo do sistema é apresentado no apêndice \ref{ap1}.
         
     
