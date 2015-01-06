@@ -11,7 +11,7 @@
 \chapter{Descrição e desenvolvimento do projeto}
 \label{cap3}
 
-    Neste capítulo são apresentados o desenvolvimento da proposta do projeto e também sua implementação no FlexA. Inicialmente serão abordados as restrições encontradas no projeto atual e a motivação para corrigi-las. Então será apresentada a documentação desenvolvida para que o projeto possa ser viável a longo prazo, então serão detalhadas as adaptações realizadas no módulo servidor para que esse passe a ser compatível com a nova especificação. Por fim, com o novo servidor pronto, será apresentado a implementação do cliente para Android.
+    Neste capítulo são apresentados o desenvolvimento da proposta do projeto e também sua implementação no FlexA. Inicialmente serão abordados as restrições encontradas no projeto atual e a motivação para corrigi-las. Então será apresentada a documentação desenvolvida para que o projeto possa ser viável a longo prazo, então serão detalhadas as adaptações realizadas no módulo servidor para que esse passe a ser compatível com a nova especificação. Por fim, com o novo servidor pronto, será apresentada a implementação do cliente para Android.
     
     %% Para não avacalhar com o projeto do Mario (rsrsrs eu ri disso)... O termo é muito engraçado. Não fiz por mal =)
     
@@ -62,7 +62,7 @@
     
     \subsection{Diagrama de classes do sistema existente} 
     
-        Para que fosse possível analisar a estrutura mais interna dos módulos foi criado o diagrama de classes da \textit{Unified Language Model} (UML)~\cite{umlClasses}. Esse diagrama é apresentado na figura \ref{fig:classesMario}. Embora seja um diagrama de classes, alguns abusos de notação tiveram que ser utilizados devido a lacuna existente entre a representação dos diagramas de Classes da e a linguagem Python em que o FlexA é desenvolvido.
+        Para que fosse possível analisar a estrutura mais interna dos módulos foi criado o diagrama de classes da \textit{Unified Language Model} (UML)~\cite{umlClasses}. Esse diagrama é apresentado na figura \ref{fig:classesMario}. Embora seja um diagrama de classes, alguns abusos QUE ABUSOS?? de notação tiveram que ser utilizados devido a lacuna existente entre a representação dos diagramas de Classes da DO QUE??? e a linguagem Python em que o FlexA é desenvolvido.
         
         \begin{figure}[!ht]
         \centering
@@ -73,11 +73,11 @@
              
         Analisando o diagrama de classes apresentado na Figura \ref{fig:classesMario} é possível perceber que muitas atividades diferentes e classes distintas pertencem a um mesmo pacote.
         
-        Conforme a proposta desse trabalho, desenvolver um cliente para Android e melhorar os quesitos de abertura do FlexA, se mostrou necessário realizar alterações no projeto para que fosse possível a execução desses objetivos sem comprometer a flexibilidade do projeto no futuro.
+        Conforme a proposta desse trabalho, que é desenvolver um cliente para Android e melhorar os quesitos de abertura do FlexA, foi necessário realizar alterações no projeto QUAL PROJETO???? para que fosse possível a execução desses objetivos sem comprometer a flexibilidade do projeto  QUAL PROJETO?? O SEU OU O DO MARIO?? no futuro.
         
         \subsection{Diagrama de Casos de Uso}
         
-        Para que fosse possivel elaborar a adaptação do projeto, num primeiro momento foi feito o levantamento dos requisitos do FlexA, junto com os objetivos de melhoria do código existente. Dessa forma foi elaborado o seguinte diagrama UML de casos de uso de acordo com ~\cite{umlCasosDeUso}. O diagrama com os casos de uso é apresentado na Figura \ref{fig:casosDeUsoGabriel}.
+        Para que fosse possivel elaborar a adaptação do projeto, num primeiro momento foi feito o levantamento dos requisitos do FlexA, junto com os objetivos de melhoria do código existente. Dessa forma foi elaborado um diagrama UML de casos de uso de acordo com ~\cite{umlCasosDeUso}. O diagrama com os casos de uso é apresentado na Figura \ref{fig:casosDeUsoGabriel}.
         
         \begin{figure}[!ht]
         \centering
@@ -86,11 +86,11 @@
         \label{fig:casosDeUsoGabriel}
         \end{figure}
     
-        Dos casos de uso apresentados na figura \ref{fig:casosDeUsoGabriel}, serão implementados e utilizados nesse trabalho apenas os referentes ao módulo cliente devido ao escopo do projeto. Os restantes foram definidos juntos para preparar os trabalhos futuros, uma vez que o momento era oportuno.
+        Dos casos de uso apresentados na figura \ref{fig:casosDeUsoGabriel}, serão implementados e utilizados nesse trabalho apenas os referentes ao módulo cliente devido ao escopo do projeto. Os restantes foram definidos juntos para preparar os trabalhos futuros.
         
         \subsection{Interface de Comunicação Cliente-Servidor}
         
-        Já com os objetivos do trabalho definidos, e uma documentação do que existia que permitisse entender o projeto foi então formulada a interface que servirá de alicerce desse trabalho que será responsável por padronizar e fornecer as comunicações entre o cliente e o servidor. Essa interface, que é apresentada na figura   \ref{fig:interfaceComunicacao}, foi desenvolvida em reunião com os outros desenvolvedores do FlexA para que fossem atendidas todas as necessidades do projeto.
+        Já com os objetivos do trabalho definidos, e uma documentação do que existia que permitisse entender o projeto, foi então formulada a interface que servirá de alicerce desse trabalho que será responsável por padronizar e fornecer as comunicações entre o cliente e o servidor. Essa interface, que é apresentada na figura   \ref{fig:interfaceComunicacao}, foi desenvolvida em reunião com os outros desenvolvedores do FlexA para que fossem atendidas todas as necessidades do projeto  PRECISA EXPLICAR SOBRE QUAL PROJETO VC ESTÁ FALANDO.  TEM HORA QUE É O SEU. TEM HORA QUE É O FLEXA..
        
         \begin{figure}
         \centering
@@ -99,11 +99,11 @@
         \label{fig:interfaceComunicacao}
         \end{figure}
         
-        Essa interface é de grande importância para o projeto, pois é ela que servirá como referencia para o desenvolvimento do módulo cliente e também do módulo servidor, uma vez que define os métodos que deverão ser invocados durante a comunicação entre os clientes e os servidores, utilizando XML-RPC e independendo da linguagem utilizada.
+        Essa interface é de grande importância para o projeto, pois é ela que servirá como referência para o desenvolvimento do módulo cliente e também do módulo servidor, uma vez que define os métodos que deverão ser invocados durante a comunicação entre os clientes e os servidores, utilizando XML-RPC e independendo da linguagem utilizada.
         
         \subsection{Protocolos de Comunicação Cliente-Servidor}
         
-        Com as funcionalidades que são esperadas do sistema e a interface de comunicação definida, foi feita a analise das comunicações entre cliente e servidor. Formalizou-se então os protocolos de comunicação, utilizando a notação para protocolos de comunicação apresentada em ~\cite{ross} que é mostrada na tabela \ref{tab:notacao}. 
+        Com as funcionalidades que são esperadas do sistema e a interface de comunicação definida, foi feita a análise das comunicações entre cliente e servidor. Formalizou-se então os protocolos de comunicação, utilizando a notação para protocolos de comunicação apresentada em ~\cite{ross} que é mostrada na tabela \ref{tab:notacao}. 
         
         \begin{table}[!ht]
         
@@ -129,7 +129,7 @@
         \label{tab:notacao}
         \end{table}
         
-        Formalizadas as definições que serão utilizadas a seguir, são apresentados os protocolos para as comunicações. Esses protocolos foram elaborados baseados no código fonte ~\cite{mario} e na interface de comunicação apresentada, já inserindo as adaptações para fornecer maior modularização, compatibilidade e segurança ao sistema.
+        Formalizadas as definições que serão utilizadas a seguir, são apresentados os protocolos para as comunicações. Esses protocolos foram elaborados com base no código fonte ~\cite{mario} e na interface de comunicação apresentada, já inserindo as adaptações para fornecer maior modularização, compatibilidade e segurança ao sistema.
         
         \subsubsection{Protocolos de manipulação de arquivos}
         
@@ -176,7 +176,7 @@
         
         Após o cadastro do arquivo e a negociação da porta de transmissão do arquivo, é feita a transmissão do arquivo em uma nova conexão com o servidor na porta $port$.
         
-        Com a negociação pronta basta enviar para o servidor a porção correspondente. Essa comunicação é definida conforme o protocolo mostrado na figura \ref{fig:protSendFileData}. Esse protocolo é implementado através de sockets, sem o uso do XML-RPC, por questões de desempenho.
+        Com a negociação pronta basta enviar para o servidor a porção correspondente. Essa comunicação é definida conforme o protocolo mostrado na figura \ref{fig:protSendFileData}. Esse protocolo é implementado através de \emph{sockets}, sem o uso do XML-RPC, por questões de desempenho.
         
         \begin{figure}[!ht]
         \bordaProtocolo{
@@ -188,7 +188,7 @@
         \end{figure}
         
         
-        Com os protocolos já definidos é possível enviar um arquivo para o servidor. Mas ainda não é possível recupera-lo. A seguir serão tratados os protocolos envolvidos na recuperação dos arquivos enviados aos servidores.
+        Com os protocolos já definidos é possível enviar um arquivo para o servidor. Mas ainda não é possível recuperá-lo. A seguir serão tratados os protocolos envolvidos na recuperação dos arquivos enviados aos servidores.
         
         Para recuperar um arquivo, é de grande importância a capacidade de listar os arquivos de um diretório. Para essa ação é utilizado o protocolo da figura \ref{fig:protListFiles}. Esse protocolo é implementado pela função \textit{list\_files}, que é apresentada na figura \ref{fig:interfaceComunicacao}.
         
@@ -201,7 +201,7 @@
         \label{fig:protListFiles}
         \end{figure}
         
-        Ao requisitar ao servidor os arquivos do diretório referenciado por $directoryKey$ o servidor manda pacotes de informação $metaFile$ referente aos arquivos. Cada pacote desse é composto por:
+        Ao requisitar ao servidor os arquivos do diretório referenciado por $directoryKey$, o servidor manda pacotes de informação $metaFile$ referente aos arquivos. Cada pacote desse é composto por:
         \begin{itemize}
             \item nome do arquivo
             \item tamanho do arquivo
@@ -210,9 +210,9 @@
             \item data de modificação
         \end{itemize}
         
-        Essas características do arquivo são enviadas junto com o nome do arquivo para evitar acessos desnecessários ao servidor para recuperar cada uma dessas informações posteriormente. Isso influencia muito no tempo de resposta do sistema.
+        Essas características do arquivo são enviadas junto com o nome do arquivo para evitar acessos desnecessários ao servidor para recuperar cada uma dessas informações posteriormente. Isso influencia no tempo de resposta do sistema.
         
-        Com a lista dos arquivos o usuário pode requisitar um arquivo especifico ao servidor. Ao requisitar o arquivo o módulo cliente faz a solicitação do \textit{salt} referente ao arquivo pelo atributo nome, com essa informação gera o trio de chaves do arquivo. Com o identificador do arquivo (\textit{verify key}) o cliente solicita a um servidor uma lista com quais servidores possuem as porções do arquivo. Essa comunicação é formalizada na figura \ref{fig:protWhoHasParts}. Esse protocolo é implementado pela função \textit{who\_has\_parts}, que é apresentada na figura \ref{fig:interfaceComunicacao}.
+        Com a lista dos arquivos, o usuário pode requisitar um arquivo específico ao servidor. Ao requisitar o arquivo, o módulo cliente faz a solicitação do \textit{salt} referente ao arquivo pelo atributo nome, com essa informação gera o trio de chaves do arquivo. Com o identificador do arquivo (\textit{verify key}), o cliente solicita a um servidor uma lista com quais servidores possuem as porções do arquivo. Essa comunicação é formalizada na figura \ref{fig:protWhoHasParts}. Esse protocolo é implementado pela função \textit{who\_has\_parts}, que é apresentada na figura \ref{fig:interfaceComunicacao}.
         
          \begin{figure}[!ht]
         \bordaProtocolo{
@@ -237,7 +237,7 @@
         \label{fig:protNegociateGetPart}
         \end{figure}
         
-        Esse protocolo diz que o cliente é quem irá abrir a conexão para receber o arquivo, e o servidor ira se conectar com o cliente utilizando o $ip$ e $port$ para isso. Após conectado com o cliente o servidor enviará o arquivo para o cliente baseado pelo protocolo apresentado pela figura\ref{fig:protGetPart}. Uma vez que esse protocolo também não é feito via XML-RPC não é definida uma função especifica.
+        Esse protocolo diz que o cliente é quem irá abrir a conexão para receber o arquivo, e o servidor ira se conectar com o cliente utilizando o $ip$ e $port$ para isso. Após conectado com o cliente o servidor enviará o arquivo para o cliente baseado pelo protocolo apresentado pela figura\ref{fig:protGetPart}. Uma vez que esse protocolo também não é feito via XML-RPC não é definida uma função específica.
         
         \begin{figure}[!ht]
         \bordaProtocolo{
@@ -266,7 +266,7 @@
         
         Como definido pelo protocolo de remoção de arquivos, o cliente deve fazer a busca dos servidores que possuem as partes do arquivo desejado, utilizando o protocolo já especificado na figura \ref{fig:protWhoHasParts}. Então o cliente envia ao servidor o identificador do arquivo que deseja excluir e a chave de escrita no arquivo. O cliente deve fazer isso para todos os servidores. Essa operação é feita no cliente para manter a filosofia do FlexA de trazer a complexidade de processamento e comunicação para o cliente.
         
-        Além de enviar, listar, excluir e atualizar os arquivos remotos uma operação que também é de grande importância é a de mover arquivos para outro diretório. No FlexA essa operação é feita totalmente no módulo servidor de forma que o cliente não necessita enviar novamente o arquivo ao move-lo de diretório. Essa operação tem o protocolo de comunicação especificado na figura \ref{fig:protMoveFile}, e é implementado pela função \textit{move\_file} da figura \ref{fig:interfaceComunicacao}.
+        Além de enviar, listar, excluir e atualizar os arquivos remotos, uma operação que também é de grande importância é a de mover arquivos para outro diretório. No FlexA essa operação é feita totalmente no módulo servidor de forma que o cliente não necessita enviar novamente o arquivo ao move-lo de diretório. Essa operação tem o protocolo de comunicação especificado na figura \ref{fig:protMoveFile}, e é implementado pela função \textit{move\_file} da figura \ref{fig:interfaceComunicacao}.
         
         \begin{figure}[!ht]
         \bordaProtocolo{
@@ -290,7 +290,7 @@
         Como mostrado na figura \ref{fig:protShareFile}, o cliente envia as chaves de acesso que desejar ao usuário $B$, cifrando-as com a chave pública de $B$.
         
         
-        Para que seja possível executar o procedimento de compartilhamento de arquivos é necessário obter a chave pública de um usuário, esse procedimento é feito através do compartilhamento da chave pública entre os próprios usuários, sem o uso do sistema para isso.
+        Para que seja possível executar o procedimento de compartilhamento de arquivos é necessário obter a chave pública de um usuário. Esse procedimento é feito através do compartilhamento da chave pública entre os próprios usuários, sem o uso do sistema para isso.
         
         Quando o usuário B desejar requisitar o arquivo que foi compartilhado com ele, o mesmo protocolo de recebimento de arquivos é utilizado, apenas omitindo a parte de solicitação do \textit{salt}, pois já possui as chaves de acesso ao arquivo. Para saber quais arquivos o usuário $B$ tem acesso ele deve listar os arquivos compartilhados cadastrados com sua chave pública, utilizando o protocolo exibido na figura \ref{fig:protListSharedFiles}, que é implementado pela função \textit{list\_shared\_files} da figura \ref{fig:interfaceComunicacao}.
         
@@ -303,7 +303,7 @@
         \label{fig:protListSharedFiles}
         \end{figure}
         
-        Por fim, após compartilhar um arquivo, caso seja necessário remover o compartilhamento é necessário refazer a criptografia do arquivo, removê-lo do sistema e cadastrá-lo novamente, já que as chaves de acesso foram fornecidas a outro usuário no compartilhamento. Para remover o acesso a um arquivo compartilhado é utilizado o protocolo apresentado na figura \ref{fig:protRemoveShare} que é implementado pela função \textit{unshare\_file} da figura \ref{fig:interfaceComunicacao}.
+        Por fim, após compartilhar um arquivo, caso seja necessário remover o compartilhamento, é necessário refazer a criptografia do arquivo, removê-lo do sistema e cadastrá-lo novamente, já que as chaves de acesso foram fornecidas a outro usuário no compartilhamento. Para remover o acesso a um arquivo compartilhado é utilizado o protocolo apresentado na figura \ref{fig:protRemoveShare} que é implementado pela função \textit{unshare\_file} da figura \ref{fig:interfaceComunicacao}.
         
         \begin{figure}[!ht]
         \bordaProtocolo{
@@ -351,9 +351,9 @@
         % Implementação das funções da interface de comunicação
         % alterações no banco de dados (share)
         
-        Ao que diz respeito ao módulo servidor, a parte envolvida nesse trabalho é a de comunicação com o cliente. Dessa forma foi necessário implementar as funções definidas na figura \ref{fig:interfaceComunicacao}, utilizando os protocolos definidos na sessão anterior.
+        Com relação ao módulo servidor, a parte envolvida nesse trabalho é a de comunicação com o cliente. Dessa forma foi necessário implementar as funções definidas na figura \ref{fig:interfaceComunicacao}, utilizando os protocolos definidos na sessão anterior.
         
-        As novas funções foram agregadas ao servidor, de forma que ele ainda mantenha a compatibilidade com o módulo cliente em Python existente. Quando o módulo cliente for remodelado para trabalhar igual ao novo cliente desenvolvido será necessário apenas remover as funções de comunicação antigas e sem uso do servidor.
+        As novas funções foram agregadas ao servidor, de forma que ele ainda mantenha a compatibilidade com o módulo cliente em Python existente. Quando o módulo cliente for remodelado para trabalhar igual ao novo cliente desenvolvido, será necessário apenas remover as funções de comunicação antigas e sem uso do servidor.
         
         Outra alteração que se fez necessária no módulo servidor foi a criação de uma nova entidade para armazenar os metadados do compartilhamento dos arquivos entre os usuários. Isso foi feito com a criação de uma nova classe para o mapeamento objeto-relacional utilizado ou \textit{Object-Relational Mapping} (ORM) com SQLAlchemy e SQLite. Essa nova classe é apresentada na figura \ref{fig:shareORM}. Essas alterações foram feitas de acordo com o que é recomendado por ~\cite{sqlalchemy}.
         
@@ -390,11 +390,11 @@
         
         \subsection{Modularização e Flexibilidade}
         
-        A modularização do projeto se da não apenas pelo uso de pacotes e separação do código em classes bem definidas. Para que o projeto possa se manter a longo prazo flexível, são utilizadas diversas interfaces para garantir que caso seja necessário realizar alterações em mecanismos de comunicação e na interface gráfica do usuário ou \textit{Graphical User Interface} (GUI), essas alterações sejam simples de serem implementadas. Os principais pontos são listados a seguir.
+        A modularização do projeto ocorre não apenas pelo uso de pacotes e separação do código em classes bem definidas. Para que o projeto possa se manter a longo prazo flexível, são utilizadas diversas interfaces para garantir que caso seja necessário realizar alterações em mecanismos de comunicação e na interface gráfica do usuário ou \textit{Graphical User Interface} (GUI), essas alterações sejam simples de serem implementadas. Os principais pontos são listados a seguir.
         
          \subsubsection{Encapsulamento da complexidade do FlexA}
          
-        Embora o XML-RPC forneça um alto grau de encapsulamento da comunicação, ainda é necessário obter uma forma de simplificar o acesso as funções fornecidas pelos servidores XML-RPC e toda a sequência ações que devem ser feitas. Esse encapsulamento é obtido utilizando a classe \textit{Client}, que é mostrada na figura \ref{fig:clientClass}. Dessa forma caso aconteça qualquer alteração nos protocolos ou nos parâmetros o resto do cliente não precisa ser alterado, ou irá precisar de apenas pequenos ajustes.
+        Embora o XML-RPC forneça um alto grau de encapsulamento da comunicação, ainda é necessário obter uma forma de simplificar o acesso as funções fornecidas pelos servidores XML-RPC e toda a sequência ações que devem ser feitas. Esse encapsulamento é obtido utilizando a classe \textit{Client}, que é mostrada na figura \ref{fig:clientClass}. Dessa forma, caso aconteça qualquer alteração nos protocolos ou nos parâmetros o resto do cliente não precisa ser alterado, ou irá precisar de apenas pequenos ajustes.
         
         \begin{figure}[!ht]
         \centering
@@ -418,7 +418,7 @@
         
         \subsection{Interface Gráfica do Usuário no Android}
         
-        Com as classes \textit{FlexaServer} e \textit{Client}, o resto do módulo cliente fica confortavelmente encapsulado e livre da comunicação com os servidores, devendo assim apenas cuidar da entrada e saída dos dados e da comunicação com o usuário do sistema através de uma interface gráfica. Uma das telas do sistema é exibida na figura \ref{fig:flexaGuiModel}.
+        Com as classes \textit{FlexaServer} e \textit{Client}, o resto do módulo cliente fica confortavelmente CONFORTAVELMENTE?????  encapsulado e livre da comunicação com os servidores, devendo assim apenas cuidar da entrada e saída dos dados e da comunicação com o usuário do sistema através de uma interface gráfica. Uma das telas do sistema é exibida na figura \ref{fig:flexaGuiModel}.
         
         \begin{figure}[!ht]
         \centering
@@ -427,7 +427,7 @@
         \label{fig:flexaGuiModel}
         \end{figure}
         
-        A utilização de uma GUI para Android embora seja necessária para a comodidade do usuário final, é bem mais complexa que a implementação para interface de linha de comando ou \textit{Command-line Interface} (CLI) que existe atualmente no cliente em Python. Para obter um resultado satisfatório no uso de uma GUI, é necessário tratar de forma assíncrona e também utilizar \textit{callbacks} nas operações de entrada e saída, de modo a evitar o congelamento do aplicativo ao realizar essas tarefas ~\cite{androidAssyncTask}. Dois exemplos dessas tarefas são mostradas na figura \ref{fig:assyncCallback}.
+        A utilização de uma GUI para Android, embora seja necessária para a comodidade do usuário final, é bem mais complexa que a implementação para interface de linha de comando ou \textit{Command-line Interface} (CLI) que existe atualmente no cliente em Python. Para obter um resultado satisfatório no uso de uma GUI, é necessário tratar de forma assíncrona e também utilizar \textit{callbacks} nas operações de entrada e saída, de modo a evitar o congelamento do aplicativo ao realizar essas tarefas ~\cite{androidAssyncTask}. Dois exemplos dessas tarefas são mostradas na figura \ref{fig:assyncCallback}.
         
         \begin{figure}[!ht]
         \centering

@@ -13,7 +13,7 @@ Nesse capítulo serão apresentados os ambientes de testes e os resultados obtid
     
     \begin{itemize}
     
-    \item \textit{Cluster} heterogêneo com 16 nós:
+    \item \textit{Cluster} heterogêneo com 16 nós (COLOQUE AQUI O NRO DOS PROJETO FAPESP.  O MEU E O DO ALEARDO - ESSE O GABRIEL COVELLO TEM. SE NAO TIVER, DEPOIS A GENTE COLOCA):
     
         \begin{itemize}
         \item 8 nós equipados Intel(R) Core(TM) i7, 16GB de RAM, HD de 500GB
@@ -56,7 +56,7 @@ Nesse capítulo serão apresentados os ambientes de testes e os resultados obtid
 
 Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arquivos distribuídos é manter a integridade de seus arquivos, foram feitos testes de integridade dos arquivos, para verificar se o processo de criptografia e transmissão dos arquivos não danificaram os arquivos. Esses testes foram feitos com arquivos de 100KB, 5MB e 200MB.
     
-    Inicialmente era calculado o \textit{hash} MD5 dos arquivos, que então eram copiados via cabo de dados para os dispositivos móveis. Então eram transferido e recuperados do FlexA via Wi-fi, e então eram novamente copiados para um computador via cabo de dados. Depois era calculado o \textit{hash} MD5 dos arquivos para mostrar a integridade dos mesmos. A figura \ref{fig:testesIntegridade} mostra os resultados.
+    Inicialmente era calculado o \textit{hash} MD5 dos arquivos, que então eram copiados via cabo de dados para os dispositivos móveis. Então eram transferido e recuperados do FlexA via Wi-fi, e então eram novamente copiados para um computador via cabo de dados. Depois era calculado o \textit{hash} MD5 dos arquivos para mostrar a integridade dos mesmos. Na figura \ref{fig:testesIntegridade} sõo mostrados os resultados.
 
     \begin{figure}[!ht]
     \centering
@@ -89,7 +89,7 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     \label{fig:testesCriptografia}
     \end{figure}
     
-    Como esperado o computador do \textit{cluster} foi capaz de criptografar os arquivos aproximadamente 10 vezes mais rápido que o \textit{tablet} e 11 vezes mais rápido que o \textit{smart-phone}.
+    Como esperado, o computador do \textit{cluster} foi capaz de criptografar os arquivos aproximadamente 10 vezes mais rápido que o \textit{tablet} e 11 vezes mais rápido que o \textit{smart-phone}.   ONDE ESTAO AS FIGURAS?/  'SO APARECE FAZER OS TESTES...
     
 \section{Desempenho de transmissão dos dados}
 
@@ -102,4 +102,4 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     \label{fig:testeTransmissao}
     \end{figure}
     
-    Como esperado o computador do cluster foi capaz de enviar e receber os arquivos aproximadamente 20 vezes mais rápido que o \textit{tablet} e o \textit{smart-phone}, já que está conectado aos servidores do FlexA via rede \textit{gigabit}. Os resultados das transmissões dos dispositivos móveis mostra que embora existam três servidores o ganho de desempenho por utilizá-los é insignificante, pois o gargalo nesse caso é a transmissão sem fio dos dados.
+    Como esperado, o computador do cluster foi capaz de enviar e receber os arquivos aproximadamente 20 vezes mais rápido que o \textit{tablet} e o \textit{smart-phone}, já que está conectado aos servidores do FlexA via rede \textit{gigabit}. Os resultados das transmissões dos dispositivos móveis mostra que embora existam três servidores, o ganho de desempenho por utilizá-los é insignificante, pois o gargalo nesse caso é a transmissão sem fio dos dados.
