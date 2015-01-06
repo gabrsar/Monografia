@@ -1,6 +1,7 @@
 % Ideia desse capitulo: Apresentar o desenvolvimento do projeto-
-% 
+
 %% Revisado por Gabriel Saraiva
+%% Revisado por Renata
 
 % Restrições do projeto atual         OK
 % Propostas de melhorias                OK
@@ -62,7 +63,7 @@
     
     \subsection{Diagrama de classes do sistema existente} 
     
-        Para que fosse possível analisar a estrutura mais interna dos módulos foi criado o diagrama de classes da \textit{Unified Language Model} (UML)~\cite{umlClasses}. Esse diagrama é apresentado na figura \ref{fig:classesMario}. Embora seja um diagrama de classes, alguns abusos QUE ABUSOS?? de notação tiveram que ser utilizados devido a lacuna existente entre a representação dos diagramas de Classes da DO QUE??? e a linguagem Python em que o FlexA é desenvolvido.
+        Para que fosse possível analisar a estrutura mais interna dos módulos foi criado o diagrama de classes da \textit{Unified Language Model} (UML)~\cite{umlClasses}. Esse diagrama é apresentado na figura \ref{fig:classesMario}. Embora seja um diagrama de classes, alguns abusos de notação tiveram que ser utilizados devido a lacuna existente entre a representação dos diagramas de classes e a linguagem Python em que o FlexA é desenvolvido. Esses abusos são a representação do código que não pertence a nenhuma classe, mas estão dentro de módulos, e também o uso de pacotes para representar arquivos.
         
         \begin{figure}[!ht]
         \centering
@@ -71,9 +72,8 @@
         \label{fig:classesMario}
         \end{figure}
              
-        Analisando o diagrama de classes apresentado na Figura \ref{fig:classesMario} é possível perceber que muitas atividades diferentes e classes distintas pertencem a um mesmo pacote.
         
-        Conforme a proposta desse trabalho, que é desenvolver um cliente para Android e melhorar os quesitos de abertura do FlexA, foi necessário realizar alterações no projeto QUAL PROJETO???? para que fosse possível a execução desses objetivos sem comprometer a flexibilidade do projeto  QUAL PROJETO?? O SEU OU O DO MARIO?? no futuro.
+        Para que o FlexA seja mais aberto e flexível é necessário realizar adaptações no código afim de fazer uma melhor separação das funções e dos módulos.
         
         \subsection{Diagrama de Casos de Uso}
         
@@ -90,7 +90,7 @@
         
         \subsection{Interface de Comunicação Cliente-Servidor}
         
-        Já com os objetivos do trabalho definidos, e uma documentação do que existia que permitisse entender o projeto, foi então formulada a interface que servirá de alicerce desse trabalho que será responsável por padronizar e fornecer as comunicações entre o cliente e o servidor. Essa interface, que é apresentada na figura   \ref{fig:interfaceComunicacao}, foi desenvolvida em reunião com os outros desenvolvedores do FlexA para que fossem atendidas todas as necessidades do projeto  PRECISA EXPLICAR SOBRE QUAL PROJETO VC ESTÁ FALANDO.  TEM HORA QUE É O SEU. TEM HORA QUE É O FLEXA..
+        Já com os objetivos do trabalho definidos, e uma documentação do que existia que permitisse entender o projeto, foi então formulada a interface que servirá de alicerce desse trabalho que será responsável por padronizar e fornecer as comunicações entre o cliente e o servidor. Essa interface, que é apresentada na figura   \ref{fig:interfaceComunicacao}, foi desenvolvida em reunião com os outros desenvolvedores do FlexA para que fossem atendidas todas as necessidades do trabalho atual e também do FlexA como um todo no futuro.
        
         \begin{figure}
         \centering
@@ -351,7 +351,7 @@
         % Implementação das funções da interface de comunicação
         % alterações no banco de dados (share)
         
-        Com relação ao módulo servidor, a parte envolvida nesse trabalho é a de comunicação com o cliente. Dessa forma foi necessário implementar as funções definidas na figura \ref{fig:interfaceComunicacao}, utilizando os protocolos definidos na sessão anterior.
+        Com relação ao módulo servidor, a parte envolvida nesse trabalho é a de comunicação com o cliente. Dessa forma foi necessário implementar as funções definidas na figura \ref{fig:interfaceComunicacao}, utilizando os protocolos definidos na seção anterior.
         
         As novas funções foram agregadas ao servidor, de forma que ele ainda mantenha a compatibilidade com o módulo cliente em Python existente. Quando o módulo cliente for remodelado para trabalhar igual ao novo cliente desenvolvido, será necessário apenas remover as funções de comunicação antigas e sem uso do servidor.
         
@@ -406,7 +406,7 @@
         
          \subsubsection{Encapsulamento da comunicação com os servidores que utilizam XML-RPC}
          
-        Ainda sim, para isolar o módulo cliente do cliente XML-RPC utilizado existe a classe \textit{FlexaServer} que é apresentada na figura \ref{fig:flexaServer}. Essa classe é a responsável por se conectar com os servidores RPC e implementar as operações  do lado do cliente mostradas na sessão anterior na figura \ref{fig:interfaceComunicacao}.
+        Ainda sim, para isolar o módulo cliente do cliente XML-RPC utilizado existe a classe \textit{FlexaServer} que é apresentada na figura \ref{fig:flexaServer}. Essa classe é a responsável por se conectar com os servidores RPC e implementar as operações  do lado do cliente mostradas na seção anterior na figura \ref{fig:interfaceComunicacao}.
         
         \begin{figure}[!ht]
         \centering
@@ -418,7 +418,7 @@
         
         \subsection{Interface Gráfica do Usuário no Android}
         
-        Com as classes \textit{FlexaServer} e \textit{Client}, o resto do módulo cliente fica confortavelmente CONFORTAVELMENTE?????  encapsulado e livre da comunicação com os servidores, devendo assim apenas cuidar da entrada e saída dos dados e da comunicação com o usuário do sistema através de uma interface gráfica. Uma das telas do sistema é exibida na figura \ref{fig:flexaGuiModel}.
+        Com as classes \textit{FlexaServer} e \textit{Client}, o resto do módulo cliente fica encapsulado e livre da comunicação com os servidores, devendo assim apenas cuidar da entrada e saída dos dados e da comunicação com o usuário do sistema através de uma interface gráfica. Uma das telas do sistema é exibida na figura \ref{fig:flexaGuiModel}.
         
         \begin{figure}[!ht]
         \centering
