@@ -61,26 +61,29 @@ Nesse capítulo serão apresentados os ambientes de testes e os resultados obtid
     
     \end{itemize}
     
-     Nos testes de desempenho e eficiência, para amenizar influências de outros processos e do sistema operacional, os testes foram realizados 10 vezes com intervalos aleatórios de 1 a 2 minutos. Os tempos utilizados nos gráficos são as médias dessas execuções. Além disso, também foram calculados os desvios padrões.
+     Os arquivos utilizados para realizar os testes são fotografias de altíssima resolução obtidas em  ~\cite{hubble}. Sendo uma fotografia de 6.6MB, outra de 15M e a maior de 172MB.
+     
+     
+     Nos testes de desempenho e eficiência, para amenizar influências de outros processos e do sistema operacional, os testes foram realizados 10 vezes com intervalos aleatórios de 1 a 2 minutos. Os tempos utilizados nos gráficos são as médias dessas execuções.
 
 \section{Integridade dos Dados}
 
-Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arquivos distribuídos é manter a integridade de seus arquivos, foram feitos testes de integridade dos arquivos, para verificar se o processo de criptografia e transmissão dos arquivos não danificaram os arquivos. Esses testes foram feitos com arquivos de 100KB, 5MB e 200MB.
+Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arquivos distribuídos é manter a integridade de seus arquivos, foram feitos testes de integridade dos arquivos, para verificar se o processo de criptografia e transmissão dos arquivos não danificaram os arquivos. 
     
-    Inicialmente era calculado o \textit{hash} MD5 dos arquivos, que então eram copiados via cabo de dados para os dispositivos móveis. Então eram transferido e recuperados do FlexA via Wi-fi, e então eram novamente copiados para um computador via cabo de dados. Depois era calculado o \textit{hash} MD5 dos arquivos para mostrar a integridade dos mesmos. Na figura \ref{fig:testesIntegridade} sõo mostrados os resultados.
+    Inicialmente era calculado o \textit{hash} MD5 dos arquivos, que então eram copiados via cabo de dados para os dispositivos móveis. Então eram transferido e recuperados do FlexA via Wi-fi, e então eram novamente copiados para um computador via cabo de dados. Depois era calculado o \textit{hash} MD5 dos arquivos para mostrar a integridade dos mesmos. Na figura \ref{fig:testesIntegridade} são mostrados os resultados.
 
     \begin{figure}[!ht]
     \centering
     \includegraphics[width=14cm]{testeIntegridade.png}
-    \caption{Teste de integridade dos arquivos. Nenhum arquivo foi danificado durante os testes.}
+    \caption{Teste de integridade dos arquivos com Android. Nenhum arquivo foi danificado durante os testes.}
     \label{fig:testesIntegridade}
     \end{figure}
 
-    Todos os testes mostraram resultados positivos quanto a integridade dos arquivos ao serem enviados e retornarem pelo FlexA.
+    Todos os testes mostraram resultados positivos quanto a integridade dos arquivos ao serem enviados e retornarem pelo FlexA utilizando o Android.
     
 \section{Compatibilidade do sistema}
 
-    Como o módulo cliente implementado do FlexA deve ser compatível com o módulo existente, foram feitos testes semelhantes aos de integridade mostrado anteriormente, exceto que os arquivos eram inseridos no FlexA pelo cliente em Python e depois recuperados pelo cliente Android e vice e versa. Na figura \ref{fig:testeCompatibilidade} são apresentados os resultados desse teste.
+    Como o módulo cliente implementado do FlexA deve ser compatível com o módulo existente, foram feitos testes semelhantes aos de integridade mostrado anteriormente, exceto que os arquivos eram inseridos no FlexA pelo cliente em Python e depois recuperados pelo cliente Android. Na figura \ref{fig:testeCompatibilidade} são apresentados os resultados desse teste.
     
     \begin{figure}[!ht]
     \centering
@@ -91,7 +94,7 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     
 \section{Desempenho de criptografia}
 
-    Esse teste mostra o tempo necessário para criptografar arquivos com 100KB, 5MB e 200MB em cada um dos dispositivos móveis e também em um nó do primeiro grupo do \textit{cluster} (computadores com processador Intel Core i7) para comparação. Os resultados são mostrados na figura \ref{fig:testesCriptografia}.
+    Esse teste mostra o tempo necessário para criptografar arquivos os arquivos de testes em cada um dos dispositivos móveis e também em um nó do primeiro grupo do \textit{cluster} (computadores com processador Intel Core i7) para comparação. Os resultados são mostrados na figura \ref{fig:testesCriptografia}.
     
     \begin{figure}[!ht]
     \centering
@@ -100,11 +103,11 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     \label{fig:testesCriptografia}
     \end{figure}
     
-    Como esperado, o computador do \textit{cluster} foi capaz de criptografar os arquivos aproximadamente 10 vezes mais rápido que o \textit{tablet} e 11 vezes mais rápido que o \textit{smart-phone}.   ONDE ESTAO AS FIGURAS?/  'SO APARECE FAZER OS TESTES...
+    Como esperado, o computador do \textit{cluster} foi capaz de criptografar os arquivos aproximadamente 3,4 vezes mais rápido que o \textit{tablet} e 3,8 vezes mais rápido que o \textit{smart-phone}.
     
 \section{Desempenho de transmissão dos dados}
 
-    Esse teste mostra o tempo necessário para enviar e receber arquivos com 100KB, 5MB e 200MB em cada um dos dispositivos móveis e também em um nó do primeiro grupo do \textit{cluster} (computadores com processador Intel Core i7) para comparação. Os resultados são mostrados na figura \ref{fig:testeTransmissao}.
+    Esse teste mostra o tempo necessário para transmitir os arquivos via Wi-fi para o FlexA. Os resultados são mostrados na figura \ref{fig:testeTransmissao}.
     
     \begin{figure}[!ht]
     \centering
@@ -113,4 +116,4 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     \label{fig:testeTransmissao}
     \end{figure}
     
-    Como esperado, o computador do cluster foi capaz de enviar e receber os arquivos aproximadamente 20 vezes mais rápido que o \textit{tablet} e o \textit{smart-phone}, já que está conectado aos servidores do FlexA via rede \textit{gigabit}. Os resultados das transmissões dos dispositivos móveis mostra que embora existam três servidores, o ganho de desempenho por utilizá-los é insignificante, pois o gargalo nesse caso é a transmissão sem fio dos dados.
+    Como esperado, o particionamento do arquivo não quase não influenciou na transmissão, uma vez que o gargalo nesse caso é a transmissão sem fio dos dados.
