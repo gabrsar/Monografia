@@ -174,23 +174,40 @@ O \textit{Network File System} (NFS) foi projetado pela \textit{Sun Microsystems
 	 
 	 O \textit{Flexible and Adaptable distributed file system} (FlexA) ~\cite{silas}, desenvolvido pelo Grupo de Sistemas Paralelos e Distribuídos (GSPD) que é o objeto de estudo desse trabalho, tem foco na utilização de recursos computacionais das estações clientes para diminuir a carga de processamento dos servidores, além de fornecer um sistema de segurança descentralizado e o uso de mecanismo de tolerância a falhas, aproveitando características de diversos SADs, focando em fornecer um SAD com grande escalabilidade ~\cite{silas}.
 	
-	 O FlexA mudou muito desde sua versão inicial, desenvolvida em 2012 ~\cite{mario}. A versão que será tratada nesse texto é a última versão que ainda está em desenvolvimento, baseada na versão original. Essa versão é o resultado da cooperação de diversos integrantes do GSPD ~\cite{mario}, durante a evolução do sistema nesses dois anos desde sua versão inicial. A arquitetura do sistema original pode ser vista na Figura \ref{fig:arquiteturaFlexaOriginal} .
+	 O FlexA mudou muito desde sua versão inicial, desenvolvida em 2012 ~\cite{mario}. A versão que será tratada nesse texto é a última versão que ainda está em desenvolvimento, baseada na versão original. Essa versão é o resultado da cooperação de diversos integrantes do GSPD ~\cite{mario}, durante a evolução do sistema nesses dois anos desde sua versão inicial. A arquitetura do sistema original pode ser vista na Figura \ref{fig:arquiteturaFlexaSilas} .
 	 
-	 \begin{figure}
+	 \begin{figure}[!ht]
 	 \centering
 	 \includegraphics[width=14cm]{arquiteturaFlexAOriginal.png}
 	 \caption{Arquitetura original do FlexA ~\cite{silas}.}
-	 \label{fig:arquiteturaFlexaOriginal}
+	 \label{fig:arquiteturaFlexaSilas}
 	 \end{figure}
 	 
-	 A arquitetura atual do projeto, se baseia muito no que foi proposto por ~\cite{silas} é apresentada na Figura \ref{fig:arquiteturaFlexa}.
+	 A arquitetura atual do projeto, se baseia muito no que foi proposto por ~\cite{silas} é apresentada na Figura \ref{fig:arquiteturaFlexaMario}.
 	 
 	 \begin{figure}[!ht]
 	 \centering
 	 \includegraphics[width=14cm]{arquiteturaFlexA.png}
 	 \caption{Arquitetura atual do FlexA ~\cite{mario}.}
-	 \label{fig:arquiteturaFlexa}
+	 \label{fig:arquiteturaFlexaMario}
 	 \end{figure}
+	 
+	 Além disso a distribuição dos arquivos também foi alterada, para que o sistema apresente um desempenho melhor do lado cliente, a replicação das porções dos arquivos na fração de 2/3 em cada servidor primário fica agora na responsabilidade dos servidores primários. o diagrama apresentado na figura \ref{fig:arquivosSilas} mostra como era a movimentação dos dados no FlexA original, e a figura \ref{fig:arquivosMario} mostra a nova versão ~\cite{mario}.
+	 
+	 \begin{figure}[!ht]
+	 \centering
+	 \includegraphics[width=10cm]{arquivosFlexaSilas.png}
+	 \caption{Fluxo de dados no FlexA original ~\cite{silas}.}
+	 \label{fig:arquivosSilas}
+	 \end{figure}
+	 
+	 \begin{figure}[!ht]
+	 \centering
+	 \includegraphics[width=10cm]{arquivosFlexaMario.png}
+	 \caption{Fluxo de dados no FlexA atual, elaborado a partir de ~\cite{mario}.}
+	 \label{fig:arquivosMario}
+	 \end{figure}
+	 
 	 
 	 Para atingir os objetivos descritos acima o FlexA possui diversos mecanismos que serão elencados nas sessões a seguir.
 	 
@@ -212,7 +229,7 @@ O \textit{Network File System} (NFS) foi projetado pela \textit{Sun Microsystems
         	    
         	    Essas chaves são criadas com base em uma chave privada RSA ~\cite{shamirRSA} especificada pelo usuário, junto com um valor único para cada arquivo chamado de \textit{salt} que é fornecido pelo servidor. Uma vez com a RSA e o \textit{\textit{salt}} o processo feito para obtenção do trio de chaves é o apresentado na Figura \ref{fig:chavesFlexa}.
         	    
-        	    \begin{figure}
+        	    \begin{figure}[!ht]
         	    \centering
         	    \includegraphics[width=10cm]{chaves.png}
         	    \caption{Diagrama sobre a criação das chaves de acesso e criptografia do FlexA ~\cite{mario}.}
