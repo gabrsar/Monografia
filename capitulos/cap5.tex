@@ -3,9 +3,9 @@
 \chapter{Conclusão}
 \label{cap5}
 
-    A execução dese projeto mostrou-se muito benéfica ao FlexA como um todo, desde a formalização dos protocolos de comunicação, que tornou o sistema muito mais fácil de ser implementado e entendido, testado e no futuro expandido, até a implementação do cliente Android, que além de oferecer ao usuário outra alternativa mais simples para uso, ainda serviu para aprimorar a flexibilidade do projeto, ao torná-lo mais aberto e padronizado.
+    A execução desse projeto mostrou-se muito benéfica ao FlexA como um todo, desde a formalização dos protocolos de comunicação, que tornou o sistema muito mais fácil de ser implementado e entendido, testado e no futuro expandido, até a implementação do cliente Android, que além de oferecer ao usuário outra alternativa mais simples para uso, ainda serviu para aprimorar a flexibilidade do projeto, ao torná-lo mais aberto e padronizado.
     
-    Com os testes executados, foi possível perceber principalmente que o sistema está se comportando de forma esperada e que embora o FlexA não seja um sistema de arquivos distribuídos voltado para dispositivos móveis, com a segurança dos dados que o sistema oferece, o tempo total de envio e recebimento dos arquivos via Wi-fi é bem aceitável. Quanto ao desempenho de criptografia e divisão dos arquivos, os dispositivos móveis são seriamente prejudicados por restrições de autonomia energética, aumentando significativamente o consumo elétrico para os clientes, o que é não é o ideal, mas inevitável dentro das premissas do projeto. Os testes de compatibilidade e integridade mostram que os módulos cliente em Python e em Android estão trabalhando de forma compatível e fornecem os resultados esperados, não danificando os arquivos que trafegam pelo sistema.
+    Com os testes executados, foi possível perceber principalmente que o sistema está se comportando de forma esperada e que embora o FlexA não seja um sistema de arquivos distribuídos voltado para dispositivos móveis, a segurança dos dados que o sistema oferece, faz com que o tempo total de envio e recebimento dos arquivos via \textit{Wi-fi} seja aceitável. Quanto ao desempenho de criptografia e divisão dos arquivos, os dispositivos móveis são seriamente prejudicados por restrições de autonomia energética, aumentando significativamente o consumo elétrico para os clientes, o que é não é o ideal, mas inevitável dentro das premissas do projeto. Os testes de compatibilidade e integridade mostram que os módulos cliente em Python e em Android estão trabalhando de forma compatível e fornecem os resultados esperados, não danificando os arquivos que trafegam pelo sistema.
     
     Dessa forma, é possível dizer que o projeto atingiu seu objetivo e o trabalho mostrou resultados positivos, principalmente no que se diz respeito a aumento da flexibilidade e abertura do FlexA.
     
@@ -16,11 +16,11 @@
     
     Deve-se ressaltar também o aprendizado de programação para Android, que apesar de ser feito utilizando linguagem Java, apresenta diversos desafios principalmente relacionados a construção de uma interface gráfica de forma modular e assíncrona.
     
-    Por fim, talvez o mais complexo foi a elaboração das interfaces de comunicação que fossem genéricas o suficiente, mas não muito relaxadas, o que fornece ao sistema uma boa flexibilidade.
+    Por fim, talvez o mais complexo foi a elaboração de interfaces de comunicação que fossem genéricas o suficiente, mas não muito relaxadas, o que fornece ao sistema uma boa flexibilidade.
     
     \section{Trabalhos futuros}
     
-    Como sugestões para trabalhos futuros, são altamente recomendado que os protocolos formalizados sejam estudados e adaptados para garantir ao sistema proteção contra ataques simples de repetição e injeção de pacotes, utilizando criptografia de toda a comunicação sensível e uso de \textit{tokens} únicos nas comunicações.
+    Como sugestões para trabalhos futuros, é altamente recomendado que os protocolos formalizados sejam estudados e adaptados para garantir ao sistema proteção contra ataques simples de repetição e injeção de pacotes, utilizando criptografia de toda a comunicação sensível e uso de \textit{tokens} únicos nas comunicações.
     
     Ainda na sessão de segurança, é de grande interesse a utilização de \textit{hash} para validação da integridade dos arquivos transmitidos de e para os servidores, e também a assinatura digital desses dados. Para a assinatura também é necessário a implementação de um mecanismo de troca de chaves criptográfica entre o servidor e o cliente. Fica sugerido a implementação do algoritmo Diffie-Hellman  para este problema ~\cite{merkle1978secure}.
     

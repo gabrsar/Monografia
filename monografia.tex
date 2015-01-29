@@ -24,8 +24,7 @@
 \usepackage{comment}            % para inserir blocos de comentário
 \usepackage{mathptmx}
 
-% Paginas com as citações na bibl
-\usepackage[brazilian,hyperpageref]{backref}
+
 
 \usepackage[alf]{abntex2cite}   % Citações padrão ABNT
 
@@ -63,21 +62,6 @@
 }
 
 
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
-\renewcommand{\backref}{}
-% Define os textos da citação
-\renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
-% ---
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -339,7 +323,7 @@ Serving as theoric foundation, this survey underlies the work execution, which i
 % ----------------------------------------------------------
 \bibliography{bibliografia}
 
-% ----------------------------------------------------------
+% ---------------------------------------------------------\-
 % Glossário
 % ----------------------------------------------------------
 %

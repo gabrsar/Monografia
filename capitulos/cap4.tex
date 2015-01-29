@@ -1,6 +1,6 @@
 %% Revisado por Gabriel Saraiva
 
-\chapter{Testes, resultados e avaliações}
+\chapter{Testes e resultados}
 \label{cap4}
 
 Nesse capítulo serão apresentados os ambientes de testes e os resultados obtidos.
@@ -69,9 +69,9 @@ Nesse capítulo serão apresentados os ambientes de testes e os resultados obtid
 
 \section{Integridade dos Dados}
 
-Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arquivos distribuídos é manter a integridade de seus arquivos, foram feitos testes de integridade dos arquivos, para verificar se o processo de criptografia e transmissão dos arquivos não danificaram os arquivos. 
+    Segundo ~\citeonline{coulouris}, um dos principais deveres de um sistema de arquivos distribuídos é manter a integridade de seus arquivos, foram feitos testes de integridade dos arquivos, para verificar se o processo de criptografia e transmissão dos arquivos não danificaram os arquivos. 
     
-    Inicialmente era calculado o \textit{hash} MD5 dos arquivos, que então eram copiados via cabo de dados para os dispositivos móveis. Então eram transferido e recuperados do FlexA via Wi-fi, e então eram novamente copiados para um computador via cabo de dados. Depois era calculado o \textit{hash} MD5 dos arquivos para mostrar a integridade dos mesmos. Na figura \ref{fig:testesIntegridade} são mostrados os resultados.
+    Inicialmente era calculado o \textit{hash} MD5 dos arquivos, que então eram copiados via cabo de dados para os dispositivos móveis. Então, eram transferidos e recuperados do FlexA via \textit{Wi-fi} e, então, eram novamente copiados para um computador via cabo de dados. Depois era calculado o \textit{hash} MD5 dos arquivos para mostrar a integridade dos mesmos. Na figura \ref{fig:testesIntegridade} são mostrados os resultados.
 
     \begin{figure}[!ht]
     \centering
@@ -117,4 +117,4 @@ Como segundo ~\cite{coulouris}, um dos principais deveres de um sistema de arqui
     \label{fig:testeTransmissao}
     \end{figure}
     
-    Como esperado, o particionamento do arquivo não quase não influenciou na transmissão, uma vez que o gargalo nesse caso é a transmissão sem fio dos dados.
+    Como esperado, o particionamento do arquivo quase não influenciou na transmissão, uma vez que o gargalo nesse caso é a transmissão sem fio dos dados.

@@ -20,10 +20,10 @@
     
         A versão atual do FlexA, ainda em um estágio inicial de desenvolvimento, carece de um modelo de programação bem definido, sua documentação precisa ser aprofundada e não menos importante de um protocolo de comunicação precisa ser bem explicitado.
         
-        Os principais pontos que serão abordados nesse projeto serão:
+        Os principais pontos abordados nesse projeto são:
         
         \begin{itemize}
-            \item Documentação documentação inicial do projeto, como um diagrama de classes, casos de uso e também um diagrama com os módulos do sistema e como eles se integram.
+            \item Documentação inicial do projeto, como um diagrama de classes, casos de uso e também um diagrama com os módulos do sistema e como eles se integram.
             \item Formalização do protocolo de comunicação.
             \item Adaptação incremental do módulo servidor para que ele passe a ser compatível com a documentação gerada.
             \item Implementação do módulo cliente para Android.
@@ -55,11 +55,11 @@
         \begin{figure}[!ht]
             \centering
             \includegraphics[width=10cm]{pacotesMario.png}
-            \caption{Módulos do sistema atual e suas dependências. Criado com base no código fonte do projeto ~\cite{mario}.}
+            \caption{Módulos do sistema atual e suas dependências. Criado com base no código fonte do projeto de ~\citeonline{mario}.}
             \label{fig:pacotesMario}
         \end{figure}
         
-        Esse diagrama foi gerado a partir do estudo do código-fonte da versão atual do projeto. Apenas por esse diagrama já é possível notar que o módulo Servidor não utiliza os serviços de criptografia, e que apenas o servidor tem acesso aos bancos de dados de metadados, o que ajuda a evidenciar a segurança dos dados do cliente que já chegam aos servidores criptografardes.
+        Esse diagrama foi gerado a partir do estudo do código-fonte da versão atual do projeto. Apenas por esse diagrama já é possível notar que o módulo Servidor não utiliza os serviços de criptografia, e que apenas o servidor tem acesso aos bancos de dados de metadados, o que ajuda a evidenciar a segurança dos dados do cliente que já chegam aos servidores criptografados.
     
     \subsection{Diagrama de classes do sistema existente} 
     
@@ -427,7 +427,7 @@
         \label{fig:flexaGuiModel}
         \end{figure}
         
-        A utilização de uma GUI para Android, embora seja necessária para a comodidade do usuário final, é bem mais complexa que a implementação para interface de linha de comando ou \textit{Command-line Interface} (CLI) que existe atualmente no cliente em Python. Para obter um resultado satisfatório no uso de uma GUI, é necessário tratar de forma assíncrona e também utilizar \textit{callbacks} nas operações de entrada e saída, de modo a evitar o congelamento do aplicativo ao realizar essas tarefas ~\cite{androidAssyncTask}. Dois exemplos dessas tarefas são mostradas na figura \ref{fig:assyncCallback}.
+        A utilização de uma GUI para Android, embora seja necessária para a comodidade do usuário final, é bem mais complexa que a implementação para interface de linha de comando ou \textit{Command-line Interface} (CLI) que existe atualmente no cliente em Python. Para obter um resultado satisfatório no uso de uma GUI, é necessário tratar de forma assíncrona e também utilizar \textit{callbacks} nas operações de entrada e saída, de modo a evitar o congelamento do aplicativo ao realizar essas tarefas ~\cite{androidAssyncTask}. Dois exemplos dessas tarefas são mostrados na figura \ref{fig:assyncCallback}.
         
         \begin{figure}[!ht]
         \centering
@@ -457,4 +457,6 @@
         \end{figure}
         
     
+    \section{Considerações finais}
     
+    Após a descrição do projeto proposto junto com seu desenvolvimento, são apresentados a seguir o cenário e os testes realizados para validar o funcionamento do sistema bem como seu desempenho.
