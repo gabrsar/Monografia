@@ -131,7 +131,7 @@
         
         Formalizadas as definições que serão utilizadas a seguir, são apresentados os protocolos para as comunicações. Esses protocolos foram elaborados com base no código fonte ~\cite{mario} e na interface de comunicação apresentada, já inserindo as adaptações para fornecer maior modularização, compatibilidade e segurança ao sistema.
         
-        \subsubsection{Protocolos de manipulação de arquivos}
+        \subsection{Protocolos de manipulação de arquivos}
         
         A primeira formalização é o protocolo para solicitação dos metadados do usuário, que é feita quando o FlexA é iniciado pela primeira vez ou caso seja necessário obter o \textit{userID} do usuário. Isso é feito com base em sua chave pública previamente cadastrada no sistema por um administrador. O protocolo é apresentado na figura \ref{fig:protMetadadosUsuario}. Esse protocolo é implementado pela função \textit{get\_user\_metadata}, que é apresentada na figura \ref{fig:interfaceComunicacao}.
         
@@ -319,7 +319,7 @@
         Esses são todos os protocolos que coordenam a comunicação entre o módulo cliente e o servidor (e vice e versa) para a manipulação de arquivos. Além desses protocolos ainda existem os que são utilizados para a obtenção dos metadados dos servidores, que são apresentados a seguir.
         
         
-        \subsubsection{Protocolos de obtenção de metadados dos servidores}
+        \subsection{Protocolos de obtenção de metadados dos servidores}
         
         Para que o cliente possa se comunicar com um servidor ele deve conhece-lo, isso inclui saber seu \textit{serverID}, e o estado atual dos recursos do servidor.
         
@@ -355,7 +355,7 @@
         
         As novas funções foram agregadas ao servidor, de forma que ele ainda mantenha a compatibilidade com o módulo cliente em Python existente. Quando o módulo cliente for remodelado para trabalhar igual ao novo cliente desenvolvido, será necessário apenas remover as funções de comunicação antigas e sem uso do servidor.
         
-        Outra alteração que se fez necessária no módulo servidor foi a criação de uma nova entidade para armazenar os metadados do compartilhamento dos arquivos entre os usuários. Isso foi feito com a criação de uma nova classe para o mapeamento objeto-relacional utilizado ou \textit{Object-Relational Mapping} (ORM) com SQLAlchemy e SQLite. Essa nova classe é apresentada na figura \ref{fig:shareORM}. Essas alterações foram feitas de acordo com o que é recomendado por ~\cite{sqlalchemy}.
+        Outra alteração que se fez necessária no módulo servidor foi a criação de uma nova entidade para armazenar os metadados do compartilhamento dos arquivos entre os usuários. Isso foi feito com a criação de uma nova classe para o mapeamento objeto-relacional utilizado ou \textit{Object-Relational Mapping} (ORM) com SQLAlchemy e SQLite. Essa nova classe é apresentada na figura \ref{fig:shareORM}. Essas alterações foram feitas de acordo com o que é recomendado em ~\citeonline{sqlalchemy}.
         
         \begin{figure}
         \centering
@@ -392,7 +392,7 @@
         
         A modularização do projeto ocorre não apenas pelo uso de pacotes e separação do código em classes bem definidas. Para que o projeto possa se manter a longo prazo flexível, são utilizadas diversas interfaces para garantir que caso seja necessário realizar alterações em mecanismos de comunicação e na interface gráfica do usuário ou \textit{Graphical User Interface} (GUI), essas alterações sejam simples de serem implementadas. Os principais pontos são listados a seguir.
         
-         \subsubsection{Encapsulamento da complexidade do FlexA}
+         \subsection{Encapsulamento da complexidade do FlexA}
          
         Embora o XML-RPC forneça um alto grau de encapsulamento da comunicação, ainda é necessário obter uma forma de simplificar o acesso as funções fornecidas pelos servidores XML-RPC e toda a sequência ações que devem ser feitas. Esse encapsulamento é obtido utilizando a classe \textit{Client}, que é mostrada na figura \ref{fig:clientClass}. Dessa forma, caso aconteça qualquer alteração nos protocolos ou nos parâmetros o resto do cliente não precisa ser alterado, ou irá precisar de apenas pequenos ajustes.
         
@@ -404,7 +404,7 @@
         \end{figure}
         
         
-         \subsubsection{Encapsulamento da comunicação com os servidores que utilizam XML-RPC}
+         \subsection{Encapsulamento da comunicação com os servidores que utilizam XML-RPC}
          
         Ainda sim, para isolar o módulo cliente do cliente XML-RPC utilizado existe a classe \textit{FlexaServer} que é apresentada na figura \ref{fig:flexaServer}. Essa classe é a responsável por se conectar com os servidores RPC e implementar as operações  do lado do cliente mostradas na seção anterior na figura \ref{fig:interfaceComunicacao}.
         
@@ -431,7 +431,7 @@
         
         \begin{figure}[!ht]
         \centering
-        \includegraphics[width=14cm]{assyncCallback.png}
+        \includegraphics[width=16cm]{callbacks.png}
         \caption{Exemplo de duas tarefas assíncronas, uma feita via XML-RPC (\textit{listFiles}) e outra via \textit{socket} (\textit{scanServers}).}
         \label{fig:assyncCallback}
         \end{figure}
@@ -447,7 +447,7 @@
         \label{fig:classesSeg}
         \end{figure}
         
-    Por fim estão as telas desenvolvidas que fornecem ao usuário acesso as configurações do FlexA, facilitando bastante o processo que anteriormente era feito realizando edições manuais no código fonte. Essas telas são apresentadas na figura \ref{fig:config}.
+    Por fim estão as telas desenvolvidas que fornecem ao usuário acesso as configurações do FlexA, facilitando o processo que anteriormente era feito realizando edições manuais no código fonte. Essas telas são apresentadas na figura \ref{fig:config}.
     
         \begin{figure}[!ht]
         \centering
@@ -459,4 +459,4 @@
     
     \section{Considerações finais}
     
-    Após a descrição do projeto proposto junto com seu desenvolvimento, são apresentados a seguir o cenário e os testes realizados para validar o funcionamento do sistema bem como seu desempenho.
+    Após a descrição do projeto proposto junto com seu desenvolvimento, são apresentados a seguir os cenários e testes realizados para validar o funcionamento do sistema bem como seu desempenho.
